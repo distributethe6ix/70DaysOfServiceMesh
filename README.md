@@ -20,6 +20,7 @@ The topics covered in this repository:
 The table below outlines what we'll cover in 70 Days of Service Mesh, with Istio being the main focus.
 | Day | Topic | Content | Description |
 ---|---|---|---|
+0 | The Setup | Informational | Setting up this repo
 1 | Let's break down a Service Mesh | Informational | An introduction to Service Mesh, the use-cases, and the problems it aims to solve.
 2 | Comparing Different Service Meshes | Informational | A comparison of Istio, Linkerd, Consul, AWS App Mesh and Cilium
 3 | Install and Test a Service Mesh | Tutorial | Let's install our first service mesh using some scripts.
