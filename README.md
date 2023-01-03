@@ -77,10 +77,10 @@ The table below outlines what we'll cover in 70 Days of Service Mesh, with Istio
 44 | Secured Microservices - Service-to-Service AuthZ Part 2 | Tutorial | Testing out AuthZ
 45 | Secured Microservices - End-user Client Authentication  | Tutorial | Testing out Auth with JWT
 46 | Secured Microservices - ExtAuthZ  | Tutorial | Setting up ExtAuthZ
-47 | Troubleshooting: The Istio Data Plane Part 1 | Tutorial | Troubleshooting: The Istio Data
-48 | Troubleshooting: The Istio Data Plane Part 2 | Tutorial | Troubleshooting: The Istio Data
-49 | Troubleshooting: The Istio Control Plane Part 1| Tutorial | Troubleshooting: The Istio Control
-50 | Troubleshooting: The Istio Control Plane Part 2 | Tutorial | Troubleshooting: The Istio Control
+47 | Troubleshooting: The Istio Data Plane Part 1 | Tutorial | Troubleshooting: The Istio Data Plane
+48 | Troubleshooting: The Istio Data Plane Part 2 | Tutorial | Troubleshooting: The Istio Data Plane
+49 | Troubleshooting: The Istio Control Plane Part 1| Tutorial | Troubleshooting: The Istio Control Plane
+50 | Troubleshooting: The Istio Control Plane Part 2 | Tutorial | Troubleshooting: The Istio Control Plane
 51 | Scaling the Istio Service Mesh - Multi-cluster Service Mesh | Informational | Understanding the need for Multiple Clusters running Service Mesh, a quick peak at multi-cluster offerings (Gloo Mesh, Anthos Service Mesh, Tanzu Service Mesh)
 52 | Scaling the Istio Service Mesh - Multi-cluster Service Mesh | Tutorial | Scaling the Istio Service Mesh
 53 | Scaling the Istio Service Mesh - Multi-cluster Service Mesh | Tutorial | Scaling the Istio Service Mesh
