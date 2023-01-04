@@ -30,7 +30,7 @@ Here are key features of a service mesh:
 
 
 ### What does a Service Mesh look like?
-
+![ServiceMesh](./assets/Day1-70DaysofServiceMesh.png)
 
 ### Relationship to Kubernetes
 Kubernetes has some challenges in how it can handle things like multi-cluster and cross-cluster communication, identity stewardship. What a Service Mesh does is it takes on the responsibilities for things like:
