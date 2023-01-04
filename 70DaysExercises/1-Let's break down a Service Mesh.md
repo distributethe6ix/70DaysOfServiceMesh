@@ -32,6 +32,13 @@ Here are key features of a service mesh:
 ### What does a Service Mesh look like?
 ![ServiceMesh](../assets/Day1-70DaysofServiceMesh.png)
 
+A service mesh usually has a few key components:
+- A control plane for which to deploy configurations to
+- A data plane implemented in both the sidecar and gateways
+- The Kubernetes cluster it resides on
+
+To describe how a service mesh behaves, an operator will apply a traffic routing or security policy, and the service mesh control plane will push any configuritions or policy to either the gateways or sidecar proxies. The gateway and sidecars will enforce any traffic rule. In the diagram above, the ingress gateway is the first to receive the external inbound request. It will forward it along to the first service in the request path, service A. Service A has a sidecar to process this request, and send back any telemetry data to the control plane. There's more to this but we'll explore in depth in the following days.
+
 ### Relationship to Kubernetes
 Kubernetes has some challenges in how it can handle things like multi-cluster and cross-cluster communication, identity stewardship. What a Service Mesh does is it takes on the responsibilities for things like:
 - certificate rotation and management
@@ -41,7 +48,7 @@ Kubernetes has some challenges in how it can handle things like multi-cluster an
 
 ### Service Mesh Offerings
 There are PLENTY of service mesh offerings out there. Some are highly proprietary while others are very open. 
-We will cover some options for the next day, *Comparing Different Service Meshes*
+We will cover some options for the next day, *Comparing Different Service Meshes*. Here's a start to get a sense of what Service Mesh solutions are out there.
 
 #### Istio 
 Istio is an open-source service mesh built by Google, IBM, and Lyft, and currently actively developed on and maintained by companies such as Solo.io. It is based on the Envoy proxy which is adopted for the sidecar pattern. Istio offers a high degree of customization and extensibility with advanced traffic routing, observability, and security for microservices. A new mode of operation for sidecar-less service mesh, called Ambient Mesh, was launched in 2022.
@@ -50,7 +57,7 @@ Istio is an open-source service mesh built by Google, IBM, and Lyft, and current
 AppMesh is a service mesh implementation that is proprietary to AWS but primarily focuses in on applications deployed to various AWS services such as ECS, EKS, EC2. Its tight-nit integration into the AWS ecosystem allows for quick onboarding of services into the mesh. 
 
 #### Consul 
-
+Consul is a serivce mesh offering from Hashicorp that also provides traffic routing, observability, and sercurity much like Istio does.
 
 #### Linkerd
 Linkerd is an open-source service mesh offering that is lightweight. Similar to Istio, it provides traffic management, observability, and security, using a similar architecture. Linkerd adopts a sidecar-pattern using a Rust-based proxy.
