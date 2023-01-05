@@ -32,8 +32,25 @@
     ```
     export PATH=$PWD/bin:$PATH
     ```
-5. Let's proceed to install Istio
+5. Check to verify that your environment is ready to go:
+    ```
+    istioctl x precheck
+    ```
+    And the output
+    ```
+    ✔ No issues found when checking the cluster. Istio is safe to install or upgrade!
+    To get started, check out https://istio.io/latest/docs/setup/getting-started/    
+    ```
+6. Let's proceed to install Istio
     ```
     istioctl install --set profile=demo -y
+    ```
+    You will see the following output:
+    ```
+    ✔ Istio core installed                                                                                                                                                          
+    ✔ Istiod installed                                                                                                                                                              
+    ✔ Egress gateways installed                                                                                                                                                     
+    ✔ Ingress gateways installed                                                                                                                                                    
+    ✔ Installation complete 
     ```
 
