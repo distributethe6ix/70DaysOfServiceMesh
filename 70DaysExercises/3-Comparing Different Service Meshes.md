@@ -22,7 +22,7 @@ Anthos Service Mesh | Proprietary | SaaS based on Istio, built by Google
 Bouyant Cloud | Proprietary | SaaS based on Linkerd
 
 
-We will cover some options below.
+I'll quickly recap some of the key options I'll compare. This was taken from Day 1.
 
 #### Istio 
 Istio is an open-source service mesh built by Google, IBM, and Lyft, and currently actively developed on and maintained by companies such as Solo.io. It is based on the Envoy proxy which is adopted for the sidecar pattern. Istio offers a high degree of customization and extensibility with advanced traffic routing, observability, and security for microservices. A new mode of operation for sidecar-less service mesh, called Ambient Mesh, was launched in 2022.
@@ -41,10 +41,10 @@ Cilium is a Container Networking Interface that leverages eBPF to optimize packe
 
 Feature | Istio | Linkerd | AppMesh| Consul| Cilium | 
 ---|---|---|---|---|---|
-Current Version | 
-Project Creators
-Service Proxy
-Ingress Capabilities
+Current Version | 1.16.1 | 2.12 | N/A (it's AWS :D ) | 1.14.3 | 1.12
+Project Creators | Google, Lyft, IBM, Solo | Buoyant | AWS | Hashicorp | Cilium 
+Service Proxy | Envoy, Rust-Proxy (experimental) | Linkerd2-proxy | Envoy | Interchangeable, Envoy default | Per-node Envoy
+Ingress Capabilities | Yes via the Istio Ingress-Gateway | No; BYO | Yes via AWS | 
 Governance and Oversight
 Getting Started
 Production Ready
