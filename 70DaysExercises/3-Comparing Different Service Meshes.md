@@ -7,6 +7,7 @@ There are PLENTY of service mesh offerings out there. Some are highly proprietar
 Here are offerings you should definitely look into:
 
 Service Mesh | Open Source or Proprietary | Notes |
+---|---|---|
 Istio | Open Source | Widely adopted and abstracted
 Linkerd | Open Source | Built by Buoyant
 Consul | Open Source | Owned by Hashcorp, Cloud offering available
