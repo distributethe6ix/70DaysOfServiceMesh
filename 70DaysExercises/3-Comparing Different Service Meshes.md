@@ -39,26 +39,31 @@ Linkerd is an open-source service mesh offering that is lightweight. Similar to 
 #### Cilium
 Cilium is a Container Networking Interface that leverages eBPF to optimize packet processing using the Linux kernel. It offers some Service Mesh capabilities, and doesn't use the sidecar model. It proceeds to deploy a per-node instance of Envoy for any sort of Layer 7 processing of requests. 
 
-Feature | Istio | Linkerd | AppMesh| Consul| Cilium | 
+### Comparsion Table
+
+Feature | Istio | Linkerd | AppMesh | Consul | Cilium | 
 ---|---|---|---|---|---|
 Current Version | 1.16.1 | 2.12 | N/A (it's AWS :D ) | 1.14.3 | 1.12
 Project Creators | Google, Lyft, IBM, Solo | Buoyant | AWS | Hashicorp | Cilium 
 Service Proxy | Envoy, Rust-Proxy (experimental) | Linkerd2-proxy | Envoy | Interchangeable, Envoy default | Per-node Envoy
-Ingress Capabilities | Yes via the Istio Ingress-Gateway | No; BYO | Yes via AWS | 
-Governance and Oversight
-Getting Started
-Production Ready
-Key Features
-Pros
-Cons
-Protocol Support
-Sidecar Modes
-CNI Redirection
-Platform Support
-Cloud Support
-Multi-workloads
-Multi-cluster Mesh
-Traffic Management
-Monitoring
-Resiliency Capabilities
-Security Capabilities
+Ingress Capabilities | Yes via the Istio Ingress-Gateway | No; BYO | Yes via AWS | Envoy | Cilium-Based Ingress
+Traffic Management (Load Balancing, Traffic Split) | Yes | Yes | Yes | Yes | Yes, but manual Envoy config required for traffic splits
+Resiliency Capabilities (Circuit Breaking, Retries/Timeouts, Faults, Delays) | Yes | Yes, no Circuit Breaking or Delays | Yes, No Fault or Delays | Yes, No Fault or Delays | Circuit Breaking, Retries and Timeouts require manual Envoy configuration, no other resiliency capabilities
+Monitoring | Access Logs, Kiali, Jaegar/Zikin, Grafana, Prometheus, LETS, OTEL | LETS, Prometheus, Grafana, OTEL | AWS X-RAY, and Cloud Watch provides these | Datadog, Jaegar, Zipkin, OpenTracing, OTEL, Honeycomb | Hubble
+Security Capabilities (mTLS, External CA) | Yes | Yes | Yes | Yes | Yes, requires manual cert creation
+Getting Started | Yes | Yes | Yes | Yes | Yes
+Production Ready | Yes | Yes | Yes | Yes | No, Cilium CNI is Production Ready, Cilium Service Mesh isn't.
+Key Features | Sidecar and Sidecar-less, Wasm Extensibility, VM support, Multi-cloud Support, Data Plane extensions | Simplistic and non-invasive | Highly focused and tight integration into AWS Ecosystem | Tight integration into Nomad and Hashicorp Ecosystem | Usage of eBPF for enhanced packet processing, Cilium Control Plane used to manage Service Mesh, No sidecars
+Limitations | Complex, learning curve | Strictly K8s, additional config for BYO Ingress | Limited to just AWS services | Storage tied to Consul and not K8s | Not a complete Service Mesh, requires manual configuration
+Protocol Support (TCP, HTTP 1.1 & 2, gRPC) | Yes | Yes | Yes | Yes | Yes
+Sidecar Modes | Sidecar and Sidecar-less | Sidecar | Sidecar | Sidecar | No sidecar
+CNI Redirection | Istio CNI Plugin | linkerd-cni | ProxyConfiguration Required | Consul CNI | eBPF Kernel processing
+Platform Support | K8s and VMs | K8s | EC2, EKS, ECS, Fargate, K8s on EC2 | K8s, Nomad, ECS, Lambda, VMs | K8s
+Multi-cluster Mesh | Yes | Yes | Yes, only AWS | Yes | Not GA
+Governance and Oversight | Istio Community | Linkered Community | AWS | Hashicorp | Cilium Community
+
+
+### Conclusion 
+Service Meshes have come a long way in terms of capabilities and the environments they support. Istio appears to be the most feature-complete service mesh, providing a balance of platform support, customizability, extensibility, and is most production ready. Linkered trails right behind with a lighter-weight approach, and is mostly complete as a service mesh. AppMesh is mostly feature-filled but specific to the AWS Ecosystem. Consul is a great contender to Istio and Linkered. The Cilium CNI is taking the approach of using eBPF and climbing up the networking stack to address Service Mesh capabilities, but it has a lot of catching up to do.
+
+See you on Day 4 of #70DaysOfServiceMesh! 
