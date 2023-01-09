@@ -3,6 +3,8 @@
 > *Let's test out traffic routing, and shifting*
 
 ### Reviewing Key Traffic Management Concepts
+Welcome to Day 4! 
+
 
 #### Istio Ingress Gateway
 
