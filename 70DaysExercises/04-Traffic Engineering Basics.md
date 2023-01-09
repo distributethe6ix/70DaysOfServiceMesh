@@ -3,10 +3,7 @@
 > *Let's test out traffic routing, and shifting*
 
 ### Reviewing Key Traffic Management Concepts
-Welcome to Day 4 :smile:
-sfdsfsdf
-
-fdsfsd
+Welcome to Day 4 :smile:!!!
 
 In future days of #70DaysofServiceMesh, we'll dig into specific traffic routing resources and how their used. I'm going to review some of these concepts very briefly and come back and revisit these in detail. 
 
@@ -48,6 +45,7 @@ Istio's sidecar uses the Proxyv2 image which is purpose-built Envoy proxy, for I
 #### Virtual Services
 
 #### Destination Rules
+These tell us what to do with the request.
 
 #### Service Entries
 I'll dive into this later, but Service Entries provide a mechanism for internal services to know how to route to external services, like a Database, or Git repo, or Object storage, for example. This can all be controlled using Service Entries. 
@@ -57,3 +55,4 @@ This can be used to control outbound requests as well, but requires a bit of con
 ### Setting up Request Routing
 
 ### Setting up Traffic Shifting
+So Let's begin
