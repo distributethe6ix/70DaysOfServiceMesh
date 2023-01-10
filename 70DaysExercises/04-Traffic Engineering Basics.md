@@ -43,6 +43,65 @@ The sidecars behave in the same manner as the Istio Ingress Gateway, and will re
 Istio's sidecar uses the Proxyv2 image which is purpose-built Envoy proxy, for Istio.
 
 #### Virtual Services
+Virtual Services are the "how do we get there" set of rules for Istio. I view this as routing rules for request. If a request is received destined towards a particular service, route it here.
+
+Here is an example of a Virtual Service definition we'll be using for each of the microservices in our environment:
+
+```
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: productpage
+spec:
+  hosts:
+  - productpage
+  http:
+  - route:
+    - destination:
+        host: productpage
+        subset: v1
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: reviews
+spec:
+  hosts:
+  - reviews
+  http:
+  - route:
+    - destination:
+        host: reviews
+        subset: v1
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: ratings
+spec:
+  hosts:
+  - ratings
+  http:
+  - route:
+    - destination:
+        host: ratings
+        subset: v1
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: details
+spec:
+  hosts:
+  - details
+  http:
+  - route:
+    - destination:
+        host: details
+        subset: v1
+---
+```
+
 
 #### Destination Rules
 These tell us what to do with the request.
