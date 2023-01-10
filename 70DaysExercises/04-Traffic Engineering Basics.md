@@ -267,7 +267,7 @@ And we can test by logging in via the website and entering jason as the user.
 
 So now we know our Destination Rule works with our Virtual Service Configuration.
 
-Let's shift some traffic.
+Let's shift some traffic!
 
 
 ### Setting up Traffic Shifting
