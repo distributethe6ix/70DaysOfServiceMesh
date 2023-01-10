@@ -5,9 +5,9 @@
 ### Reviewing Key Traffic Management Concepts
 Welcome to Day 4 :smile:!!!
 
-In future days of #70DaysofServiceMesh, we'll dig into specific traffic routing resources and how their used. I'm going to review some of these concepts very briefly and come back and revisit these in detail. 
+In future days of #70DaysofServiceMesh, we'll dig into specific traffic routing resources and how they're used. I'm going to review some of these concepts very briefly and come back and revisit these in detail later. 
 
-Traffic management is an important topics in the world of microservices communication because, you have not one or two, but thousands of services making requests to each other. In the world of physical networking, network devices can be used for flow control and packet routing, but because the size of our networks have grown to accomodate microservices communications; manually creating the path way for each to connect does not scale well. 
+Traffic management is an important topic in the world of microservices communication because, you have not one or two, you have thousands of services making requests to each other. In the world of physical networking, network devices can be used for flow control and packet routing, but because the size of our networks have grown to accomodate microservices communications, manually creating the path way for each to connect does not scale well. 
 
 Kubernetes has done quite a lot to simplify networking for microservices through technologies like CNI, Ingress (and more recently), Gateway API. There are other challenges around traffic routing that can be solved with custom-tailored solutions.
 
@@ -60,7 +60,7 @@ spec:
 The output shows us a few key pieces of information:
 - The name of the Gateway resources
 - The specific Istio Ingress gateway we use, using the label-selector mechanism
-- The wildcard "*" host we are listening on, basically any host
+- The wildcard denoted by an asterisk specifies the host we are listening on, basically any host
 - The port number, port 80
 - The protocol which is HTTP
 
