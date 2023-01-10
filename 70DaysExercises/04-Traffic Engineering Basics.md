@@ -263,7 +263,7 @@ kubectl apply -f samples/bookinfo/networking/virtual-service-reviews-test-v2.yam
 
 And we can test by logging in via the website and entering jason as the user.
 
-![Traffic_MGMT_jason](../assets/Day4-70DaysofServiceMesh-traffic-mgmt-jason.png)
+![Traffic_MGMT_jason](..assets/Day4-70DaysofServiceMesh-traffic-mgmt-jason.png)
 
 So now we know our Destination Rule works with our Virtual Service Configuration.
 
