@@ -36,6 +36,36 @@ You configure an Istio Ingress Gateway resource, and then an associated Virtual 
 
 Istio's Ingress Gateway uses the Proxyv2 image which is purpose-built Envoy proxy, for Istio.
 
+The Gateway configuration we used previously...
+```
+cat istio-1.16.1/samples/bookinfo/networking/bookinfo-gateway.yaml
+```
+```
+marinow@mwm1mbp networking % cat bookinfo-gateway.yaml 
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: bookinfo-gateway
+spec:
+  selector:
+    istio: ingressgateway # use istio default controller
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*"
+```
+The output shows us a few key pieces of information:
+- The name of the Gateway resources
+- The specific Istio Ingress gateway we use, using the label-selector mechanism
+- The wildcard "*" host we are listening on, basically any host
+- The port number, port 80
+- The protocol which is HTTP
+
+*Istio Ingress Gateway:  I will listen for requests coming into any DNS hostname directed to port 80 using the HTTP protocol.*
+
 #### Sidecars
 Sidecars are an important traffic management tool as they live right alongside each microservice and will proxy requests on behalf of them. 
 The sidecars behave in the same manner as the Istio Ingress Gateway, and will receive and process requests, and provide responses appropriately (as they are configured to). The sidecars also play a huge role with observability and security, which I'll explore later.
@@ -102,16 +132,206 @@ spec:
 ---
 ```
 
+There are 4 virtual service configurations present, each one's "host" field corresponds to the microservice and it's Kubernetes Service resource. 
+The protocol being HTTP is specified, with the destination and a *subset* which is translated to a particular microservice with a label affixed to it. This is important to distinguish multiple versions of the same resource. We also need another resource to help with distinguishing, the Destination Rule resource.
 
 #### Destination Rules
-These tell us what to do with the request.
+While Virtual Services point us to the service and host entries of where our services live, Destination Rules provide a granular action list. What happens when a request arrives at this destination? 
+Destination Rules allow us to specify multiple versions of a service based on the back-end pods using Subsets. This is referenced by the Virtual Service resource to establish which available services can be routed to. 
+This might be useful for dark launches and canary releasing so you can split traffic to different versions.
+
+Looking at the Destination Rule Resource for the Reviews services we can see the 3 different subsets for the 3 different versions. Notice that the labels actually correspond with the deployment resources for each version of reviews.
+This is how we know how to route to each version. VS tells us *where*, DR tells us *how* and *what to do*.
+
+```
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: reviews
+spec:
+  host: reviews
+  subsets:
+  - name: v1
+    labels:
+      version: v1
+  - name: v2
+    labels:
+      version: v2
+  - name: v3
+    labels:
+      version: v3
+```
 
 #### Service Entries
 I'll dive into this later, but Service Entries provide a mechanism for internal services to know how to route to external services, like a Database, or Git repo, or Object storage, for example. This can all be controlled using Service Entries. 
 
 This can be used to control outbound requests as well, but requires a bit of control plane rework. More on this on later.
 
+
 ### Setting up Request Routing
+We are using the same environment for Day 2. Go back and review it if you have not set up Istio.
+
+To set up request routing to Reviews-v1, we need to have a destination rule and virtual service configuration in place.
+Let's apply them:
+
+#### Destination Rule (make sure you are in the right directory)
+```
+cd istio-1.16.1
+kubectl apply -f samples/bookinfo/networking/destination-rule-all.yaml
+```
+
+#### Virtual Service
+```
+kubectl apply -f samples/bookinfo/networking/virtual-service-all-v1.yaml
+```
+
+Let's verify that the resources were created:
+```
+kubectl get vs && kubectl get dr
+```
+
+AND THE RESULT
+```
+marinow@mwm1mbp istio-1.16.1 % kubectl get vs && kubectl get dr
+NAME          GATEWAYS               HOSTS             AGE
+bookinfo      ["bookinfo-gateway"]   ["*"]             4d15h
+productpage                          ["productpage"]   14h
+reviews                              ["reviews"]       14h
+ratings                              ["ratings"]       14h
+details                              ["details"]       14h
+NAME          HOST          AGE
+productpage   productpage   96s
+reviews       reviews       96s
+ratings       ratings       96s
+details       details       96s
+```
+Now, if I head over to my browser (I have a localhost DNS entry), I can get to bookinfo.io/productpage. If I hit refresh a few times, only the **Reviews-v1** service is hit.
+
+[INSERT IMAGE HERE]
+
+This is because I configured my virtual service resource to only route to **v1** of Reviews as seen in the configuration below.
+
+```
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: reviews
+spec:
+  hosts:
+  - reviews
+  http:
+  - route:
+    - destination:
+        host: reviews
+        subset: v1
+---
+```
+
+Now I'll update the configuration to route to **v2** IF and ONLY IF, I pass along a request header with the string "jason" as the end-user. Otherwise, my requests will continue to go to **v1**.
+
+Before I update it, let's look at it
+```
+cat samples/bookinfo/networking/virtual-service-reviews-test-v2.yaml
+
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: reviews
+spec:
+  hosts:
+    - reviews
+  http:
+  - match:
+    - headers:
+        end-user:
+          exact: jason
+    route:
+    - destination:
+        host: reviews
+        subset: v2
+  - route:
+    - destination:
+        host: reviews
+        subset: v1
+```
+Notice the match field and what follows below. The route field has been indented because it's under a *match* condition.
+
+Now I'll apply it:
+```
+kubectl apply -f samples/bookinfo/networking/virtual-service-reviews-test-v2.yaml
+```
+
+And we can test by logging in via the website and entering jason as the user.
+
+[Insert Image]
+
+So now we know our Destination Rule works with our Virtual Service Configuration.
+
+Let's shift some traffic.
+
 
 ### Setting up Traffic Shifting
-So Let's begin
+
+To begin, we need to remove our previous virtual service configuration that routes using the *jason* header.
+```
+kubectl delete -f samples/bookinfo/networking/virtual-service-reviews-test-v2.yaml
+```
+
+Next, I'll quickly review the traffic-shifting we'll do. 
+```
+cat samples/bookinfo/networking/virtual-service-reviews-50-v3.yaml
+
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: reviews
+spec:
+  hosts:
+    - reviews
+  http:
+  - route:
+    - destination:
+        host: reviews
+        subset: v1
+      weight: 70
+    - destination:
+        host: reviews
+        subset: v3
+      weight: 30
+```
+Within each destination, it points to a subset. v1 points to Reviews-v1, while v3 points to Reviews-v3. We can apply this reviews VS resource, and it will then split the traffic with 70% of requests going to v1, while v3 receives 30% of the requests.
+
+Let's apply the config and test:
+```
+kubectl apply -f samples/bookinfo/networking/virtual-service-reviews-50-v3.yaml
+```
+Now we can test this using a curl command in a for-loop. The for-loop runs 10 times, to make requests to the Product page, I've used grep to narrow down output to either v1 or v3, to witness the split of 70/30 Reviews-v1 getting 70% of the requests:
+```
+for i in {1..10}; do curl -s http://bookinfo.io/productpage | grep "reviews-v"; done
+```
+AND THE RESULT:
+```
+    <u>reviews-v3-6dc9897554-8pgtx</u>
+    <u>reviews-v1-9c6bb6658-lvzsr</u>
+    <u>reviews-v1-9c6bb6658-lvzsr</u>
+    <u>reviews-v1-9c6bb6658-lvzsr</u>
+    <u>reviews-v3-6dc9897554-8pgtx</u>
+    <u>reviews-v3-6dc9897554-8pgtx</u>
+    <u>reviews-v1-9c6bb6658-lvzsr</u>
+    <u>reviews-v1-9c6bb6658-lvzsr</u>
+    <u>reviews-v1-9c6bb6658-lvzsr</u>
+    <u>reviews-v1-9c6bb6658-lvzsr</u>
+```
+
+### Conclusion
+Day 4 of #70DaysOfServiceMesh scratches the surface of Traffic management capabilities. We'll explore more in future modules.
+I briefly covered several traffic management components that allow requests to flow within a Service Mesh:
+- Istio Ingress Gateway
+- Sidecar
+- Virtual Services
+- Destination Rules
+- Service Entries
+
+And I got to show you all of this in action!
+
+See you on Day 5 and beyond! :smile:!
