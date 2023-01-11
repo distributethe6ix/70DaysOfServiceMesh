@@ -52,7 +52,7 @@ Ingress Capabilities | Yes via the Istio Ingress-Gateway | No; BYO | Yes via AWS
 Traffic Management (Load Balancing, Traffic Split) | Yes | Yes | Yes | Yes | Yes, but manual Envoy config required for traffic splits
 Resiliency Capabilities (Circuit Breaking, Retries/Timeouts, Faults, Delays) | Yes | Yes, no Circuit Breaking or Delays | Yes, No Fault or Delays | Yes, No Fault or Delays | Circuit Breaking, Retries and Timeouts require manual Envoy configuration, no other resiliency capabilities
 Monitoring | Access Logs, Kiali, Jaegar/Zikin, Grafana, Prometheus, LETS, OTEL | LETS, Prometheus, Grafana, OTEL | AWS X-RAY, and Cloud Watch provides these | Datadog, Jaegar, Zipkin, OpenTracing, OTEL, Honeycomb | Hubble, OTEL, Prometheus, Grafana
-Security Capabilities (mTLS, External CA) | Yes | Yes | Yes | Yes | Yes, requires manual cert creation
+Security Capabilities (mTLS, External CA) | Yes | Yes | Yes | Yes | Yes with Wireguard
 Getting Started | Yes | Yes | Yes | Yes | Yes
 Production Ready | Yes | Yes | Yes | Yes | Yes
 Key Features | Sidecar and Sidecar-less, Wasm Extensibility, VM support, Multi-cloud Support, Data Plane extensions | Simplistic and non-invasive | Highly focused and tight integration into AWS Ecosystem | Tight integration into Nomad and Hashicorp Ecosystem | Usage of eBPF for enhanced packet processing, Cilium Control Plane used to manage Service Mesh, No sidecars
