@@ -21,6 +21,8 @@ I have set up specific days to cover deeper observability but, let's get it goin
 - Jaegar
 - Kiali 
 
+One consideration is that there are more production and enterprise-ready offerings that absolutely should be explored.
+
 ### Installing the sample observability addons
 I'm using the same Civo Kubernetes cluster I've been using since I started this, but I plan to create some automation to turn up and down new clusters.
 
@@ -49,7 +51,29 @@ kiali-5ff88f8595-fnk8t                  1/1     Running   0          33s
 Perfect, let's proceed with Prometheus.
 
 ### Prometheus 
-To get pro
+Since Prometheus is already installed we want to verify that it's currently running.
+
+Let's check the service and verify it's online.
+```
+kubectl get svc prometheus -n istio-system
+```
+```
+NAME         TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
+prometheus   ClusterIP   10.43.234.212   <none>        9090/TCP   25h
+```
+
+I'm going to generate traffic from my host to the Bookinfo app and I'll go review this in Prometheus, which we'll expose using istoctl.
+```
+curl "http://bookinfo.io/productpage"
+```
+
+Let's turn up the dashboard  the *istioctl dashboard [name_of_k8s_service]*:
+```
+istioctl dashboard prometheus
+```
+At this point, a web-browser (your default) should open up with Prometheus. I want to feed it a query and I will do so in the *Expression* address bar, and proceed to hit execute
+
+
 ### Grafana
 
 ### Jaegar
