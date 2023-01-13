@@ -192,7 +192,7 @@ The screenshot below shows the directional flow of traffic, but, also notice tha
 
 Finally, check out this video and see the visualization.
 
-![kiali_video_visualizations](../assets/Day05-70DaysOfServiceMesh-Kiali.mov)
+![kiali_video_visualizations](../assets/Day05-70DaysOfServiceMesh-Kiali.gif)
 
 Go ahead and end the Kiali dashboard process with *ctrl+c*.
 
