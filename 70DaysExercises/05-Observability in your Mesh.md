@@ -78,7 +78,7 @@ Paste the below into the query bar.
 ```
 istio_requests_total
 ```
-![promday5](..assets/Day5-Prometheus.png)
+![promday5](../assets/Day5-Prometheus.png)
 
 There's much more to what we can see in Prometheus. If you have this up in your environment, play around. 
 
