@@ -1,8 +1,8 @@
 ## 5 - Observability in your Mesh
 > **Tutorial**
-> *Let's see what's going on in our mesh*
+> *LETS see what's going on in our mesh*
 
-What do you do when an application responds too slowly? Sometimes, there are network conditions well outside of our control, especially in Cloud and Data Center environments where QoS can be challenging to tune. But before we can tune, we need to see what's up.
+What do you do when an application responds too slowly? Sometimes, there are network conditions well outside of our control, especially in Cloud and Data Center environments where QoS can be challenging to tune. But before we can tune up, we need to see what's up.
 
 A Service Mesh provides the right key pieces to capture this data.
 The Istio Service Mesh generates a few types of telemetry and metrics to give a sense of what's happening with:
@@ -11,7 +11,7 @@ The Istio Service Mesh generates a few types of telemetry and metrics to give a 
 - Services inside of the mesh
 
 Istio provides details around:
-- Metrics for latency, errors, traffic and saturation
+- Metrics for latency, errors, traffic and saturation (LETS)
 - Distributed tracing for spans to understand request flows
 - Access logs, to determine source/destination metadata of requests.
 
@@ -74,13 +74,13 @@ istioctl dashboard prometheus
 At this point, a web-browser (your default) should open up with Prometheus. I want to feed it a query and I will do so in the *Expression* address bar, and proceed to hit execute.
 When your browser launches with Promtheus, simply enter the following to execute a query on the total requests Istio will process. 
 
-Paste the below into the query bar.
+Paste the below into the query bar. This query simply outputs all the requests Istio sees.
 ```
 istio_requests_total
 ```
 ![promday5](../assets/Day5-Prometheus.png)
 
-There's much more to what we can see in Prometheus. If you have this up in your environment, play around. 
+There's much more to what we can see in Prometheus. If you have this up in your environment, play around. I'll revisit this in later days as I intend to dig into some of the key metrcis around SLAs, SLOs, SLIs, nth-percentile and latency, requests per second and others.
 
 Hit *ctrl+c* to exist the dashboard process.
 
