@@ -194,6 +194,8 @@ Finally, check out this video and see the visualization.
 
 ![kiali_video_visualizations](../assets/Day05-70DaysOfServiceMesh-Kiali.gif)
 
+Or visit the video here: https://www.youtube.com/watch?v=vhV8nHgytNM
+
 Go ahead and end the Kiali dashboard process with *ctrl+c*.
 
 ### Conclusion
