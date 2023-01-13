@@ -78,7 +78,7 @@ Paste the below into the query bar.
 ```
 istio_requests_total
 ```
-[INSERT IMAGE]
+![promday5](..assets/Day5-Prometheus.png)
 
 There's much more to what we can see in Prometheus. If you have this up in your environment, play around. 
 
@@ -112,13 +112,17 @@ istioctl dashboard grafana
 ```
 A web browser with the Grafana tab should have opened up. On the far left, click the 4 boxes that make up a square, and then select the Istio folder.
 
+![graph_grafana](..assets/Day05-Grafana-GraphAccess.png)
+
 Select the Istio Mesh Dashboard.
 
 In another terminal, let's  generate some load
 ```
 for i in $(seq 1 100); do curl -s -o /dev/null "http://bookinfo.io/productpage"; done
 ```
-The metrics for each of the services (except reviews v2) receive requests and ultimately will produce valuable metrics indicative of success, latency and other key details.
+The metrics for each of the services (except reviews v2) receive requests and ultimately will produce valuable metrics indicative of success, latency and other key details. We can see this below:
+
+![grafana_mesh_dash](..assets/Day05-Grafana-Mesh-Dashboard.png)
 
 In the second terminal, let's  generate some more load
 ```
@@ -126,6 +130,8 @@ for i in $(seq 1 300); do curl -s -o /dev/null "http://bookinfo.io/productpage";
 ```
 
 Go back to where the Istio dashboards are located, and click the Service dashboard. This will give you an idea of how the services in the mesh are performing and the client-success rate.
+
+![grafana_service_dash](..assets/Day05-Grafana-Service-Dashboard.png)
 
 I'll dive more into these details in future days. Kill the dashboard by hitting *ctrl+c*
 
