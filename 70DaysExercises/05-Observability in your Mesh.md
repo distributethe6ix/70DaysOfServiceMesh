@@ -112,7 +112,7 @@ istioctl dashboard grafana
 ```
 A web browser with the Grafana tab should have opened up. On the far left, click the 4 boxes that make up a square, and then select the Istio folder.
 
-![graph_grafana](..assets/Day05-Grafana-GraphAccess.png)
+![graph_grafana](../assets/Day05-Grafana-GraphAccess.png)
 
 Select the Istio Mesh Dashboard.
 
@@ -122,7 +122,7 @@ for i in $(seq 1 100); do curl -s -o /dev/null "http://bookinfo.io/productpage";
 ```
 The metrics for each of the services (except reviews v2) receive requests and ultimately will produce valuable metrics indicative of success, latency and other key details. We can see this below:
 
-![grafana_mesh_dash](..assets/Day05-Grafana-Mesh-Dashboard.png)
+![grafana_mesh_dash](../assets/Day05-Grafana-Mesh-Dashboard.png)
 
 In the second terminal, let's  generate some more load
 ```
@@ -131,7 +131,7 @@ for i in $(seq 1 300); do curl -s -o /dev/null "http://bookinfo.io/productpage";
 
 Go back to where the Istio dashboards are located, and click the Service dashboard. This will give you an idea of how the services in the mesh are performing and the client-success rate.
 
-![grafana_service_dash](..assets/Day05-Grafana-Service-Dashboard.png)
+![grafana_service_dash](../assets/Day05-Grafana-Service-Dashboard.png)
 
 I'll dive more into these details in future days. Kill the dashboard by hitting *ctrl+c*
 
@@ -154,8 +154,12 @@ By picking a service, you are looking from it's POV, how it's apart of the reque
 
 I picked the ratings service which shows me all the spans it's associated with in a single trace. We'll expand upon this later on.
 
-[image1]
-[image2]
+All the different traces:
+
+![all_traces_jaegar](../assets/Day05-Jaegar-Trace-List.png)
+
+All the different spans within the *ratings* trace:
+![all_spans_jaegar](../assets/Day05-Jaegar-Trace-Span.png)
 
 
 Ever used wireshark before?
@@ -184,7 +188,11 @@ In about a few minutes you'll start to see a visual map show up in Kiali as ment
 
 The screenshot below shows the directional flow of traffic, but, also notice that lock icon! It means mTLS is available. We'll explore this in the Security sections.
 
+![kiali_flows](../assets/Day05-Kiali.png)
+
 Finally, check out this video and see the visualization.
+
+![kiali_video_visualizations](../assets/Day05-70DaysOfServiceMesh-Kiali.mov)
 
 Go ahead and end the Kiali dashboard process with *ctrl+c*.
 
