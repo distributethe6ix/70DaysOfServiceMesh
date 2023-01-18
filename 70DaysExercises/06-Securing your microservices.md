@@ -23,12 +23,64 @@ In Kubernetes, the CNI layer may be able to provide a limited amount of network 
 Let's review what Istio offers and proceed to configure some of this. We will explore some of these in greater detail in future days.
 
 ### Istio Peer Authentication and mTLS
+One of the key aspects of the Istio service mesh is its ability to issue and manage identity for workloads that are deployed into the mesh. To put it into perspective, if all services have a sidecar, and are issued an identity (it's own identity) from the Istiod control plane, a new ability to trust and verify services now exists. This is how Peer Authentication is achieved using mTLS. I plan to go into lots more details in future modules.
+
+In Istio, Peer Authentication must be configured for services and can be scoped to workloads, namespaces, or the entire mesh.
+
+There are three modes, I'll explain them briefly and we'll get to configuring!
+* PERMISSIVE: for when you have plaintext AND encrypted traffic. Migration-oriented
+* STRICT: Only mTLS enabled workloads
+* DISABLE: No mTLS at all.
+
+We can also take care of End-user Auth using JWT (JSON Web Tokens) but I'll explore this later.
 
 ### Configuring Istio Peer AuthN and Strict mTLS
+Let's get to configuring our environment with Peer Authentication and verify.
+
+We already have our environment ready to go so we just need to deploy another sample app that won't have the sidecar, and we also need to turn up an Authentication policy.
+
+Let's deploy a new namespace called sleep and deploy a sleeper pod to it.
+```
+kubectl create ns sleep
+```
+```
+kubectl get ns
+```
+```
+cd istio-1.16.1
+kubectl apply -f samples/sleep/sleep.yaml -n sleep
+```
+
+Let's test to make sure the sleeper pod can communicate with the bookinfo app!
+This command simply execs into the name of the sleep pod with the "app=sleep" label in the sleep namespace and proceeds to curl productpage in the default namespace. 
+The status code should be 200!
+```
+kubectl exec "$(kubectl get pod -l app=sleep -n sleep -o jsonpath={.items..metadata.name})" -c sleep -n sleep -- curl productpage.default.svc.cluster.local:9080 -s -o /dev/null -w "%{http_code}\n"
+```
+```
+200
+```
+
+Let's apply our PeerAuthentication
+```
+kubectl apply -f - <<EOF
+apiVersion: security.istio.io/v1beta1
+kind: PeerAuthentication
+metadata:
+  name: "default"
+  namespace: "istio-system"
+spec:
+  mtls:
+    mode: STRICT
+EOF
+```
+
+Now, if we re-run the curl command as I did previously (I just up-arrowed but you can copy and paste from above), it will fail with exit code 56. This strongly implies that peer-authentication in STRICT mode disallows non-mTLS workloads from communicating with mTLS workloads.
+
+As I mentioned previously, I'll expand further in future days.
 
 ### Istio Layer 7 Authorization 
 
 ### Configuring L7 Authorization Policies
-
 
 
