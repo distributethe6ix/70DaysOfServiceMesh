@@ -20,6 +20,8 @@ As a security operator, I may issue policy configurations, or authentication con
 
 In Kubernetes, the CNI layer may be able to provide a limited amount of network policy and encryption. Looking at a service mesh, encryption can be provided through mutual-TLS, or mTLS for service-to-service communication, and this same layer can provide a mechanism for Authentication using strong identities in SPIFFE ID format. Layer 7 Authorization is another capability of a service mesh. We can authorize certain services to perform actions (HTTP operations) against other services. 
 
+To simplify this, Authentication is about having keys to unlock and enter through the door, and Authorization is about what you are allowed to do/touch, once you're in. Defence in Depth.
+
 Let's review what Istio offers and proceed to configure some of this. We will explore some of these in greater detail in future days.
 
 ### Istio Peer Authentication and mTLS
@@ -80,7 +82,69 @@ Now, if we re-run the curl command as I did previously (I just up-arrowed but yo
 As I mentioned previously, I'll expand further in future days.
 
 ### Istio Layer 7 Authorization 
+Authorization is a very interesting area of security, mainly because we can granularly control who can perform whatever action against another resource. More specifically, what HTTP operations can one service perform against another. Can a service *GET* data from another service using HTTP operations? 
+
+I'll briefly explore a simple Authorization policy that allows GET requests but disallows DELETE requests against a resource. This is a highly granular approach to Zero-trust. 
+
+A consideration when moving towards production is to use a tool like Kiali (or others) to create a service mapping and understand the various HTTP calls made between services. This will allow you to establish incremental policies. 
+
+The one key element here is that Envoy (or Proxyv2 for Istio) as a sidecar, is the policy enforcement point for all Authorization Policies. Policies are evaluated by the authorization engine that authorizes requests at runtime. The destination sidecar, or Envoy, is responsible for evaluating this.
+
+Let's get to configuring!
+
 
 ### Configuring L7 Authorization Policies
 
+In order to get a policy up and running, we first need to deny all HTTP-based based operations.
 
+Also, the flow of the request looks like this:
+Client User --> Product Page (BookInfo) --> Details 
+                                        --> Reviews --> Ratings
+Let's DENY ALL
+```
+kubectl apply -f - <<EOF
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: allow-nothing
+  namespace: default
+spec:
+  {}
+EOF
+```
+Now if you curl bookinfo's product page from our sleep pod, it will fail!
+```
+kubectl exec "$(kubectl get pod -l app=sleep -o jsonpath={.items..metadata.name})" -c sleep  -- curl productpage.default.svc.cluster.local:9080 -s -o /dev/null -w "%{http_code}\n"
+``` 
+You'll see a 403, HTTP 403 = Forbidden...or Not Authorized
+
+Here's my output:
+```
+marinow@marinos-air ~ % kubectl exec "$(kubectl get pod -l app=sleep -o jsonpath={.items..metadata.name})" -c sleep  -- curl productpage.default.svc.cluster.local:9080 -s -o /dev/null -w "%{http_code}\n"
+200
+```
+```
+marinow@marinos-air ~ % kubectl apply -f - <<EOF
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: allow-nothing
+  namespace: default
+spec:
+  {}
+EOF
+authorizationpolicy.security.istio.io/allow-nothing created
+```
+```
+marinow@marinos-air ~ % kubectl exec "$(kubectl get pod -l app=sleep -o jsonpath={.items..metadata.name})" -c sleep  -- curl productpage.default.svc.cluster.local:9080 -s -o /dev/null -w "%{http_code}\n"
+403
+marinow@marinos-air ~ % 
+```
+
+To fix this, we can apply a policy for each service in the request path to allow for service-to-service communication. 
+
+We need four authorization policies
+1. User client to product page.
+2. From Product Page to Details
+3. From product-page to reviews
+4. From reviews to ratings
