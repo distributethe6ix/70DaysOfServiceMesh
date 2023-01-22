@@ -1,5 +1,11 @@
-# 70DaysOfServiceMesh
+ 
+<h1 align="center">    
+    Welcome to #70DaysOfServiceMesh!!!    
+</h1>
 
+![Banner](https://user-images.githubusercontent.com/91419219/213897837-857e8855-0203-4462-8379-9a712843246b.png)
+
+ 
 ## Welcome to #70DaysOfServiceMesh!!!
 Inspired by Michael Cades' #90DaysOfDevOps and his ask for me to participate in his 2023 iteration to discuss 7 Days of Service Mesh, I decided to create a #70DaysOfServiceMesh.
 
