@@ -99,7 +99,10 @@ In order to get a policy up and running, we first need to deny all HTTP-based ba
 
 Also, the flow of the request looks like this:
 Client User --> Product Page (BookInfo) --> Details 
-                                        --> Reviews --> Ratings
+                            
+                            --> Reviews --> Ratings
+
+                            
 Let's DENY ALL
 ```
 kubectl apply -f - <<EOF
