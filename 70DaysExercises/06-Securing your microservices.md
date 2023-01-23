@@ -99,7 +99,7 @@ In order to get a policy up and running, we first need to deny all HTTP-based ba
 
 Also, the flow of the request looks like this:
 
-![bookinfo_requests][../assets/Day06-BookinfoAuthZ.png]
+![bookinfo_requests](../assets/Day06-BookinfoAuthZ.png)
 
 The lock-icon is indicative of the fact that mTLS is enabled and ready to go.
 
@@ -190,7 +190,7 @@ kubectl exec "$(kubectl get pod -l app=sleep -o jsonpath={.items..metadata.name}
 
 We can even see the result of applying just one AuthZ policy:
 
-![increment_authZ1][../assets/Day06-IncrementalAuthZ1.png]
+![increment_authZ1](../assets/Day06-IncrementalAuthZ1.png)
 
 
 
@@ -278,7 +278,7 @@ If all has been deployed correctly accessing bookinfo should provide a successfu
 
 Seeing this in action:
 
-![increment_authZ1][../assets/Day06-IncrementalAuthZ1.png]
+![increment_authZ1](../assets/Day06-IncrementalAuthZ1.png)
 
 Now we know our AuthZ policies are working.
 
