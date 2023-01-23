@@ -20,6 +20,8 @@ As a security operator, I may issue policy configurations, or authentication con
 
 In Kubernetes, the CNI layer may be able to provide a limited amount of network policy and encryption. Looking at a service mesh, encryption can be provided through mutual-TLS, or mTLS for service-to-service communication, and this same layer can provide a mechanism for Authentication using strong identities in SPIFFE ID format. Layer 7 Authorization is another capability of a service mesh. We can authorize certain services to perform actions (HTTP operations) against other services. 
 
+mTLS is used to authenticate peers in both directions; more on mTLS and TLS in later days.
+
 To simplify this, Authentication is about having keys to unlock and enter through the door, and Authorization is about what you are allowed to do/touch, once you're in. Defence in Depth.
 
 Let's review what Istio offers and proceed to configure some of this. We will explore some of these in greater detail in future days.
