@@ -98,11 +98,11 @@ Let's get to configuring!
 In order to get a policy up and running, we first need to deny all HTTP-based based operations.
 
 Also, the flow of the request looks like this:
-Client User --> Product Page (BookInfo) --> Details 
-                            
-                            --> Reviews --> Ratings
 
-                            
+![bookinfo_requests][..assets/Day06-BookinfoAuthZ.png]
+
+The lock-icon is indicative of the fact that mTLS is enabled and ready to go.
+
 Let's DENY ALL
 ```
 kubectl apply -f - <<EOF
@@ -187,11 +187,18 @@ But if we change the resource from productpage.default.svc.cluster.local:9080 to
 ```
 kubectl exec "$(kubectl get pod -l app=sleep -o jsonpath={.items..metadata.name})" -c sleep  -- curl ratings.default.svc.cluster.local:9080 -s -o /dev/null -w "%{http_code}\n"
 ```
+
+We can even see the result of applying just one AuthZ policy:
+![Increment_AuthZ1][../assets/Day06-IncrementalAuthZ1.png]
+
+
+
 I am incrementally allowing services to trust only the services that they need to communicate with.
 
 Let's apply the rest of the policies:
 
 This one will allow product-page to HTTP GET details from the *reviews* service.
+
 ```
 kubectl apply -f - <<EOF
 apiVersion: security.istio.io/v1beta1
@@ -214,6 +221,11 @@ spec:
 EOF
 ```
 
+There is a *rules* section which specifies the source of the request through the *principals* key. Here we specify the service account of the bookinfo-productpage, it's identity.
+
+
+
+This policy allows the *reviews* services to get data from the *ratings* service
 ```
 kubectl apply -f - <<EOF
 apiVersion: security.istio.io/v1beta1
@@ -236,12 +248,13 @@ spec:
 EOF
 ```
 
+This policy will allow *productpage* to get details from the *details* service.
 ```
 kubectl apply -f - <<EOF
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
 metadata:
-  name: "details-viewer"
+  name: "get-details"
   namespace: default
 spec:
   selector:
@@ -258,5 +271,17 @@ spec:
 EOF
 ```
 
+If all has been deployed correctly accessing bookinfo should provide a successful result.
+
+*If you've set up a local host dns record, you should be able to go to bookinfo.io/productpage to see this working*
+
+Seeing this in action:
+![Increment_AuthZ1][../assets/Day06-IncrementalAuthZ1.png]
+
+Now we know our AuthZ policies are working.
+
+On Day 6 (plus several days), I dug into Authentication with mMTLS and Authorization with Authorization Policies. This just scratches the surface and we absolutely need to dig deeper.
+
 In the more security specific sections of #70DaysofServiceMesh, I'll break down some of the detail.
 
+Thanks y'all!
