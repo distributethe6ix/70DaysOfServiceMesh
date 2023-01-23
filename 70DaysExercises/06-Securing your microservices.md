@@ -148,3 +148,45 @@ We need four authorization policies
 2. From Product Page to Details
 3. From product-page to reviews
 4. From reviews to ratings
+
+If we look at the configuration below, the AuthZ Policy has a few key important elements:
+1. The apiVersion specifies that this is an Istio resource/CRD
+2. The spec, which states which resource will receive the HTTP Request inbound, and the method, which is GET.
+3. The action or method that can take place against the above resource, which is *ALLOW*
+
+This allows an external client to run an HTTP GET operation against product-page. All other types of requests will be denied.
+Let's apply it.
+
+```
+kubectl apply -f - <<EOF
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: "get-productpage"
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: productpage
+  action: ALLOW
+  rules:
+  - to:
+    - operation:
+        methods: ["GET"]
+EOF
+```
+The curl command run previously should return a 200 success code. 
+```
+kubectl exec "$(kubectl get pod -l app=sleep -o jsonpath={.items..metadata.name})" -c sleep  -- curl productpage.default.svc.cluster.local:9080 -s -o /dev/null -w "%{http_code}\n"
+```
+
+But if we change the resource from productpage.default.svc.cluster.local:9080 to ratings.default.svc.cluster.local:9080, and curl to it, it should return a 403.
+```
+kubectl exec "$(kubectl get pod -l app=sleep -o jsonpath={.items..metadata.name})" -c sleep  -- curl ratings.default.svc.cluster.local:9080 -s -o /dev/null -w "%{http_code}\n"
+```
+I am incrementally allowing services to trust only the services that they need to communicate with.
+
+Let's apply the rest of the policies
+
+In the more security specific sections of #70DaysofServiceMesh, I'll break down some of the detail.
+
