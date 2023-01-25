@@ -11,15 +11,15 @@ There are mechanisms that can be deployed like retires, timeouts, circuit break 
 
 Also, something needs to implement this, and in the case of Istio, it's the sidecar.
 
-#### Timeouts
+### Timeouts
 A timeout is used to effectively force a decision on when to give up on that request to a service. If it responds within the timeout window, great, but if it hits the limit, the request is terminated.
 
-#### Retries
+### Retries
 Retries allow for a requests to be retried if a request fails. The sidecar will be responsible for implementing the retry call to the failed service. 
 
-#### Circuit Breaking
+### Circuit Breaking
 Circuit breaking offers yet another mechanism to build resiliency into an application. Thresholds can be set to prevent a service from being overloaded. For example, 
 
-#### Fault Injection
+### Fault Injection
 
 Istio offers a great deal of capabilities around building resiliency 
