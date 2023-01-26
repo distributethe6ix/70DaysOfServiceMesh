@@ -20,6 +20,8 @@ As a security operator, I may issue policy configurations, or authentication con
 
 In Kubernetes, the CNI layer may be able to provide a limited amount of network policy and encryption. Looking at a service mesh, encryption can be provided through mutual-TLS, or mTLS for service-to-service communication, and this same layer can provide a mechanism for Authentication using strong identities in SPIFFE ID format. Layer 7 Authorization is another capability of a service mesh. We can authorize certain services to perform actions (HTTP operations) against other services. 
 
+mTLS is used to authenticate peers in both directions; more on mTLS and TLS in later days.
+
 To simplify this, Authentication is about having keys to unlock and enter through the door, and Authorization is about what you are allowed to do/touch, once you're in. Defence in Depth.
 
 Let's review what Istio offers and proceed to configure some of this. We will explore some of these in greater detail in future days.
@@ -98,8 +100,11 @@ Let's get to configuring!
 In order to get a policy up and running, we first need to deny all HTTP-based based operations.
 
 Also, the flow of the request looks like this:
-Client User --> Product Page (BookInfo) --> Details 
-                                        --> Reviews --> Ratings
+
+![bookinfo_requests](../assets/Day06-BookinfoAuthZ.png)
+
+The lock-icon is indicative of the fact that mTLS is enabled and ready to go.
+
 Let's DENY ALL
 ```
 kubectl apply -f - <<EOF
@@ -148,3 +153,139 @@ We need four authorization policies
 2. From Product Page to Details
 3. From product-page to reviews
 4. From reviews to ratings
+
+If we look at the configuration below, the AuthZ Policy has a few key important elements:
+1. The apiVersion specifies that this is an Istio resource/CRD
+2. The spec, which states which resource will receive the HTTP Request inbound, and the method, which is GET.
+3. The action or method that can take place against the above resource, which is *ALLOW*
+
+This allows an external client to run an HTTP GET operation against product-page. All other types of requests will be denied.
+Let's apply it.
+
+```
+kubectl apply -f - <<EOF
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: "get-productpage"
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: productpage
+  action: ALLOW
+  rules:
+  - to:
+    - operation:
+        methods: ["GET"]
+EOF
+```
+The curl command run previously should return a 200 success code. 
+```
+kubectl exec "$(kubectl get pod -l app=sleep -o jsonpath={.items..metadata.name})" -c sleep  -- curl productpage.default.svc.cluster.local:9080 -s -o /dev/null -w "%{http_code}\n"
+```
+
+But if we change the resource from productpage.default.svc.cluster.local:9080 to ratings.default.svc.cluster.local:9080, and curl to it, it should return a 403.
+```
+kubectl exec "$(kubectl get pod -l app=sleep -o jsonpath={.items..metadata.name})" -c sleep  -- curl ratings.default.svc.cluster.local:9080 -s -o /dev/null -w "%{http_code}\n"
+```
+
+We can even see the result of applying just one AuthZ policy:
+
+![increment_authZ1](../assets/Day06-IncrementalAuthZ1.png)
+
+
+
+I am incrementally allowing services to trust only the services that they need to communicate with.
+
+Let's apply the rest of the policies:
+
+This one will allow product-page to HTTP GET details from the *reviews* service.
+
+```
+kubectl apply -f - <<EOF
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: "get-reviews"
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: reviews
+  action: ALLOW
+  rules:
+  - from:
+    - source:
+        principals: ["cluster.local/ns/default/sa/bookinfo-productpage"]
+    to:
+    - operation:
+        methods: ["GET"]
+EOF
+```
+
+There is a *rules* section which specifies the source of the request through the *principals* key. Here we specify the service account of the bookinfo-productpage, it's identity.
+
+
+
+This policy allows the *reviews* services to get data from the *ratings* service
+```
+kubectl apply -f - <<EOF
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: "get-ratings"
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: ratings
+  action: ALLOW
+  rules:
+  - from:
+    - source:
+        principals: ["cluster.local/ns/default/sa/bookinfo-reviews"]
+    to:
+    - operation:
+        methods: ["GET"]
+EOF
+```
+
+This policy will allow *productpage* to get details from the *details* service.
+```
+kubectl apply -f - <<EOF
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: "get-details"
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: details
+  action: ALLOW
+  rules:
+  - from:
+    - source:
+        principals: ["cluster.local/ns/default/sa/bookinfo-productpage"]
+    to:
+    - operation:
+        methods: ["GET"]
+EOF
+```
+
+If all has been deployed correctly accessing bookinfo should provide a successful result.
+
+*If you've set up a local host dns record, you should be able to go to bookinfo.io/productpage to see this working*
+
+Seeing this in action:
+
+![increment_authZ1](../assets/Day06-IncrementalAuthZ1.png)
+
+Now we know our AuthZ policies are working.
+
+On Day 6 (plus several days), I dug into Authentication with mMTLS and Authorization with Authorization Policies. This just scratches the surface and we absolutely need to dig deeper.
+
+In the more security specific sections of #70DaysofServiceMesh, I'll break down some of the detail.
+
+Thanks y'all!
