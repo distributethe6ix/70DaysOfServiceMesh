@@ -6,7 +6,7 @@
 ![Banner](https://user-images.githubusercontent.com/91419219/213897837-857e8855-0203-4462-8379-9a712843246b.png)
 
  
-## Welcome to #70DaysOfServiceMesh!!!
+### Welcome to #70DaysOfServiceMesh!!!
 Inspired by Michael Cades' #90DaysOfDevOps and his ask for me to participate in his 2023 iteration to discuss 7 Days of Service Mesh, I decided to create a #70DaysOfServiceMesh.
 
 70 Days of Service Mesh allows me to dig into plenty of areas to help myself (and others) better understand the inner workings of a service mesh. Some days will be a bit of a mini blogpost while other days might be very tutorial oriented.
@@ -17,7 +17,7 @@ I'll add contribution guidelines in the future!
 
 In this repo, we'll dig into a structured and iterative approach to learning Service Mesh.
 
-The topics covered in this repository:
+### The topics covered in this repository:
 - What is a Service Mesh
 - Comparison of Service Meshes
 - Networking Recap
@@ -30,7 +30,7 @@ The topics covered in this repository:
 - Istio Ambient Mesh
 - Expanded areas of Istio
 
-The table below outlines what we'll cover in 70 Days of Service Mesh, with Istio being the main focus.
+### The table below outlines what we'll cover in 70 Days of Service Mesh, with Istio being the main focus.
 
 **Note** Some of this is subject to change.
 
