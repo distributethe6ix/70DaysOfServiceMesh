@@ -21,5 +21,8 @@ Retries allow for a requests to be retried if a request fails. The sidecar will 
 Circuit breaking offers yet another mechanism to build resiliency into an application. Thresholds can be set to prevent a service from being overloaded. For example, 
 
 ### Fault Injection
+Fault injection allows for introducing erros into the request path to test resiliency and see how services respond, recover and withstand the fault. You can inject a *delay* to simulate latency added into the request path. Another method is to inject an *abort* which simulates an upstream failure.
 
-Istio offers a great deal of capabilities around building resiliency 
+
+Istio offers a great deal of capabilities around building resiliency and offers many approaches to build that for an app but, there might be resiliency mechanisms that paired together might producing an unexpeceted result.
+
