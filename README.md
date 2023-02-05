@@ -37,13 +37,13 @@ In this repo, we'll dig into a structured and iterative approach to learning Ser
 | Day | Topic | Content | Description |
 ---|---|---|---|
 0 | The Setup | Informational | Setting up this repo
-1 | Let's break down a Service Mesh | Informational | An introduction to Service Mesh, the use-cases, and the problems it aims to solve.
-2 | Install and Test a Service Mesh | Tutorial | Let's install our first service mesh
-3 | Comparing Different Service Meshes | Informational | A comparison of Istio, Linkerd, Consul, AWS App Mesh and Cilium
-4 | Traffic Engineering Basics | Tutorial | Let's test out traffic routing, and shifting
-5 | Observability in your Mesh | Tutorial | Let's see what's going on in our mesh
-6 | Securing your microservices | Tutorial | Let's secure our microservices
-7 | Resilient Microservices | Tutorial | Let's build some resilient microservices
+1 | [Let's break down a Service Mesh](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/01-Let's%20break%20down%20a%20Service%20Mesh.md) | Informational | An introduction to Service Mesh, the use-cases, and the problems it aims to solve.
+2 | [Install and Test a Service Mesh](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/02-Install%20and%20Test%20a%20Service%20Mesh.md) | Tutorial | Let's install our first service mesh
+3 | [Comparing Different Service Meshes](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/03-Comparing%20Different%20Service%20Meshes.md) | Informational | A comparison of Istio, Linkerd, Consul, AWS App Mesh and Cilium
+4 | [Traffic Engineering Basics](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/04-Traffic%20Engineering%20Basics.m) | Tutorial | Let's test out traffic routing, and shifting
+5 | [Observability in your Mesh](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/05-Observability%20in%20your%20Mesh.md) | Tutorial | Let's see what's going on in our mesh
+6 | [Securing your microservices](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/06-Securing%20your%20microservices.md) | Tutorial | Let's secure our microservices
+7 | [Resilient Microservices](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/07-Resilient%20Microservices.md) | Tutorial | Let's build some resilient microservices
 8 | Setting up a Kubernetes environment for Service Mesh | Tutorial | Prequisites and requirements for a Service Mesh Playground
 9 | Recap: TCP/IP and DNS | Informational | What is TCP/IP and how does this relate to DNS?
 10 | Recap: Kubernetes Networking and DNS | Tutorial | Let's dive into Kubernetes Networking and DNS
