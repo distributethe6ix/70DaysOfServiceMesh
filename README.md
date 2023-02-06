@@ -57,16 +57,16 @@ In this repo, we'll dig into a structured and iterative approach to learning Ser
 18 | [Install Istio and the Demo Profile](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/18-Install%20Istio%20and%20the%20Demo%20Profile.md) | Tutorial | Let's install service mesh on our cluster.
 19 | [The Virtual Service, Destination Rule, and Service Entry CRDs](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/19-The%20Virtual%20Service%2C%20Destination%20Rule%2C%20and%20Service%20Entry%20CRDs.md) | Informational | Breaking down traffic routing resources.
 20 | [Istio Ingress Gateway](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/20-Istio%20Ingress%20Gateway.md) | Tutorial | Let's dive into the Istio Ingress Gateway and configure it.
-21 | The Istio Sidecar and Sidecar Injection | Tutorial | Understanding how Envoy plays the role of Sidecar and what the sidecar does in the service Mesh
-22 | Traffic Engineering - Releases | Informational | Understading Dark Launches, Canaries and release practices
-23 | Traffic Engineering - Request Routing | Tutorial | Understanding how to route requests and shift traffic based on various conditons
-24 | Traffic Engineering - Traffic Shift | Tutorial | How to shift traffic based on various conditons
-25 | Traffic Engineering - Traffic Mirroring | Tutorial | Understanding how traffic mirroring can help with releases.
-26 | Microservices Resiliency Expanded | Informational | Client-side LB, Locality-aware LB, Timeouts and retries, circuit breaking
-27 | Resiliency - Client-side Load-balancing | Tutorial | Testing out resiliency with Client-side Load-balancing
-28 | Resiliency - Locality-aware Load-balancing | Tutorial | Testing out resiliency with Locality
-29 | Resiliency - Retries and Timeouts | Tutorial | Testing out resiliency with Retries and Timeouts
-30 | Resiliency - Circuit Breaking | Tutorial | Testing out resiliency with Circuit Breaking
+21 | [The Istio Sidecar and Sidecar Injection](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/21-The%20Istio%20Sidecar%20and%20Sidecar%20Injection.md) | Tutorial | Understanding how Envoy plays the role of Sidecar and what the sidecar does in the service Mesh
+22 | [Traffic Engineering - Releases](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/22-Traffic%20Engineering%20-%20Releases.md) | Informational | Understading Dark Launches, Canaries and release practices
+23 | [Traffic Engineering - Request Routing](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/23-Traffic%20Engineering%20-%20Request%20Routing.md) | Tutorial | Understanding how to route requests and shift traffic based on various conditons
+24 | [Traffic Engineering - Traffic Shift](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/24-Traffic%20Engineering%20-%20Traffic%20Shift.md) | Tutorial | How to shift traffic based on various conditons
+25 | [Traffic Engineering - Traffic Mirroring](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/25-Traffic%20Engineering%20-%20Traffic%20Mirroring.md) | Tutorial | Understanding how traffic mirroring can help with releases.
+26 | [Microservices Resiliency Expanded](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/26-Microservices%20Resiliency%20Expanded.md) | Informational | Client-side LB, Locality-aware LB, Timeouts and retries, circuit breaking
+27 | [Resiliency - Client-side Load-balancing](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/27-Resiliency%20-%20Client-side%20Load-balancing.md) | Tutorial | Testing out resiliency with Client-side Load-balancing
+28 | [Resiliency - Locality-aware Load-balancing](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/28-Resiliency%20-%20Locality-aware%20Load-balancing.md) | Tutorial | Testing out resiliency with Locality
+29 | [Resiliency - Retries and Timeouts](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/29-Resiliency%20-%20Retries%20and%20Timeouts.md) | Tutorial | Testing out resiliency with Retries and Timeouts
+30 | [Resiliency - Circuit Breaking](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/30-Resiliency%20-%20Circuit%20Breaking.md) | Tutorial | Testing out resiliency with Circuit Breaking
 31 | The Four Golden Signals - Latency, Errors, Traffic, Saturation | Informational | Diving into Latency, Errors, Traffic and Saturation
 32 | Observability in your Mesh - Expanded | Informational | Understanding traffic patterns and using the Mesh to gives our observability
 33 | Istio Control and Data Plane Metrics | Tutorial | Gathering information from various Istio components to understand behavior
