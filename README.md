@@ -67,26 +67,26 @@ In this repo, we'll dig into a structured and iterative approach to learning Ser
 28 | [Resiliency - Locality-aware Load-balancing](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/28-Resiliency%20-%20Locality-aware%20Load-balancing.md) | Tutorial | Testing out resiliency with Locality
 29 | [Resiliency - Retries and Timeouts](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/29-Resiliency%20-%20Retries%20and%20Timeouts.md) | Tutorial | Testing out resiliency with Retries and Timeouts
 30 | [Resiliency - Circuit Breaking](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/30-Resiliency%20-%20Circuit%20Breaking.md) | Tutorial | Testing out resiliency with Circuit Breaking
-31 | The Four Golden Signals - Latency, Errors, Traffic, Saturation | Informational | Diving into Latency, Errors, Traffic and Saturation
-32 | Observability in your Mesh - Expanded | Informational | Understanding traffic patterns and using the Mesh to gives our observability
-33 | Istio Control and Data Plane Metrics | Tutorial | Gathering information from various Istio components to understand behavior
-34 | Using Prometheus and Grafana to scrape Istio Metrics  | Tutorial | Scraping metrics with Prometheus and Grafana
-35 | Distributed Tracing in Istio with Jaegar Part 1 | Tutorial | Let's get familiar with Distributed tracing and Jaegar
-36 | Distributed Tracing in Istio with Jaegar Part 2 | Tutorial | Let's use  Jaegar to understand a request flow
-37 | Visualization with Kiali | Tutorial | Using Kiali, let's visualize microservices interactions.
-38 | Understanding certificates and TLS and mTLS | Informational | What are Certificates and what are TLS and mTLS?
-39 | Understanding JWT | Informational | How does JSON Web Tokens work and provide an authentication mechanism?
-40 | SPIFFE Identity | Informational | Understanding SPIFFE ID and how it relates to Istio
-41 | Securing your microservices - Expanded | Informational | Let's secure our microservices and understand the need behind this.
-42 | Secured Microservices - mTLS and Peer-AuthN | Tutorial | Mutual TLS and Peer Authentication in Istio
-43 | Secured Microservices - Service-to-Service AuthZ Part 1 | Tutorial | Understanding the setup for for AuthZ
-44 | Secured Microservices - Service-to-Service AuthZ Part 2 | Tutorial | Testing out AuthZ
-45 | Secured Microservices - End-user Client Authentication  | Tutorial | Testing out Auth with JWT
-46 | Secured Microservices - ExtAuthZ  | Tutorial | Setting up ExtAuthZ
-47 | Troubleshooting: The Istio Data Plane Part 1 | Tutorial | Troubleshooting: The Istio Data Plane
-48 | Troubleshooting: The Istio Data Plane Part 2 | Tutorial | Troubleshooting: The Istio Data Plane
-49 | Troubleshooting: The Istio Control Plane Part 1| Tutorial | Troubleshooting: The Istio Control Plane
-50 | Troubleshooting: The Istio Control Plane Part 2 | Tutorial | Troubleshooting: The Istio Control Plane
+31 | [The Four Golden Signals - Latency, Errors, Traffic, Saturation](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/31-The%20Four%20Golden%20Signals%20-%20Latency%2C%20Errors%2C%20Traffic%2C%20Saturation.md) | Informational | Diving into Latency, Errors, Traffic and Saturation
+32 | [Observability in your Mesh - Expanded](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/32-Observability%20in%20your%20Mesh%20-%20Expanded.md) | Informational | Understanding traffic patterns and using the Mesh to gives our observability
+33 | [Istio Control and Data Plane Metrics](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/33-Istio%20Control%20and%20Data%20Plane%20Metrics.md) | Tutorial | Gathering information from various Istio components to understand behavior
+34 | [Using Prometheus and Grafana to scrape Istio Metrics](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/34-Using%20Prometheus%20and%20Grafana%20to%20scrape%20Istio%20Metrics%20.md)  | Tutorial | Scraping metrics with Prometheus and Grafana
+35 | [Distributed Tracing in Istio with Jaegar Part 1](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/35-Distributed%20Tracing%20in%20Istio%20with%20Jaegar.md) | Tutorial | Let's get familiar with Distributed tracing and Jaegar
+36 | [Distributed Tracing in Istio with Jaegar Part 2](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/36-Distributed%20Tracing%20in%20Istio%20with%20Jaegar.md) | Tutorial | Let's use  Jaegar to understand a request flow
+37 | [Visualization with Kiali](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/37-Visualization%20with%20Kiali.md) | Tutorial | Using Kiali, let's visualize microservices interactions.
+38 | [Understanding certificates and TLS and mTLS](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/38-Understanding%20certificates%20and%20TLS%20and%20mTLS.md) | Informational | What are Certificates and what are TLS and mTLS?
+39 | [Understanding JWT](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/39-Understanding%20JWT.md) | Informational | How does JSON Web Tokens work and provide an authentication mechanism?
+40 | [SPIFFE Identity](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/40-SPIFFE%20Identity.md) | Informational | Understanding SPIFFE ID and how it relates to Istio
+41 | [Securing your microservices - Expanded](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/41-Securing%20your%20microservices%20-%20Expanded.md) | Informational | Let's secure our microservices and understand the need behind this.
+42 | [Secured Microservices - mTLS and Peer-AuthN](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/42-Secured%20Microservices%20-%20mTLS%20and%20Peer-AuthN.md) | Tutorial | Mutual TLS and Peer Authentication in Istio
+43 | [Secured Microservices - Service-to-Service AuthZ Part 1](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/43-Secured%20Microservices%20-%20Service-to-Service%20AuthZ.md) | Tutorial | Understanding the setup for for AuthZ
+44 | [Secured Microservices - Service-to-Service AuthZ Part 2](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/44-Secured%20Microservices%20-%20Service-to-Service%20AuthZ.md) | Tutorial | Testing out AuthZ
+45 | [Secured Microservices - End-user Client Authentication](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/45-Secured%20Microservices%20-%20End-user%20Client%20Authentication%20.md)  | Tutorial | Testing out Auth with JWT
+46 | [Secured Microservices - ExtAuthZ](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/46-Secured%20Microservices%20-%20ExtAuthZ%20.md)  | Tutorial | Setting up ExtAuthZ
+47 | [Troubleshooting: The Istio Data Plane Part 1](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/47-Troubleshooting:%20The%20Istio%20Data%20Plane.md) | Tutorial | Troubleshooting: The Istio Data Plane
+48 | [Troubleshooting: The Istio Data Plane Part 2](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/48-Troubleshooting:%20The%20Istio%20Data%20Plane.md) | Tutorial | Troubleshooting: The Istio Data Plane
+49 | [Troubleshooting: The Istio Control Plane Part 1](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/49-Troubleshooting:%20The%20Istio%20Control%20Plane.md)| Tutorial | Troubleshooting: The Istio Control Plane
+50 | [Troubleshooting: The Istio Control Plane Part 2](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/50-Troubleshooting:%20The%20Istio%20Control%20Plane.md) | Tutorial | Troubleshooting: The Istio Control Plane
 51 | Scaling the Istio Service Mesh - Multi-cluster Service Mesh | Informational | Understanding the need for Multiple Clusters running Service Mesh, a quick peak at multi-cluster offerings (Gloo Mesh, Anthos Service Mesh, Tanzu Service Mesh)
 52 | Scaling the Istio Service Mesh - Multi-cluster Service Mesh | Tutorial | Scaling the Istio Service Mesh
 53 | Scaling the Istio Service Mesh - Multi-cluster Service Mesh | Tutorial | Scaling the Istio Service Mesh
