@@ -87,23 +87,23 @@ In this repo, we'll dig into a structured and iterative approach to learning Ser
 48 | [Troubleshooting: The Istio Data Plane Part 2](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/48-Troubleshooting:%20The%20Istio%20Data%20Plane.md) | Tutorial | Troubleshooting: The Istio Data Plane
 49 | [Troubleshooting: The Istio Control Plane Part 1](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/49-Troubleshooting:%20The%20Istio%20Control%20Plane.md)| Tutorial | Troubleshooting: The Istio Control Plane
 50 | [Troubleshooting: The Istio Control Plane Part 2](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/50-Troubleshooting:%20The%20Istio%20Control%20Plane.md) | Tutorial | Troubleshooting: The Istio Control Plane
-51 | Scaling the Istio Service Mesh - Multi-cluster Service Mesh | Informational | Understanding the need for Multiple Clusters running Service Mesh, a quick peak at multi-cluster offerings (Gloo Mesh, Anthos Service Mesh, Tanzu Service Mesh)
-52 | Scaling the Istio Service Mesh - Multi-cluster Service Mesh | Tutorial | Scaling the Istio Service Mesh
-53 | Scaling the Istio Service Mesh - Multi-cluster Service Mesh | Tutorial | Scaling the Istio Service Mesh
-54 | Virtual Machines in your Service Mesh | Informational | How do we connect VMs to the Mesh?
-55 | Virtual Machines in your Service Mesh | Tutorial | How do we connect VMs to the Mesh?
-56 | Istio and WebAssembly | Informational | Istio and extending the data path for WebAssembly
-57 | Istio and Cert Manager | Informational | Why use Cert-manager with Istio?
-58 | Istio and Inlets | Tutorial | Using Inlets for the LoadBalancer Service for Istio Ingress Gateways
-59 | The Istio-CNI | Informational | Using the Istio-CNI to reroute traffic for side-car operations
-60 | Sidecars vs Sidecar-less | Informational | Understanding a world where Sidecar and Sidecar-less coexist.
-61 | Istio Ambient Mesh - Sidecar-less Service Mesh | Informational | Sidecar-less Service Mesh
-62 | Istio Ambient Mesh - Architecture | Informational | Sidecar-less Service Mesh Architecture
-63 | Istio Ambient Mesh - Installation | Tutorial | Installing Istio in Ambient Mode
-64 | Istio Ambient Mesh - ztunnel | Tutorial | Breaking down ztunnel
-65 | Istio Ambient Mesh - Waypoint Proxy | Tutorial | Using the Waypoint Proxy
-66 | Istio Ambient Mesh - Testing out sidecar-less | Tutorial | Sidecar-less operations
-67 | Istio Ambient Mesh - Sidecar and Sidecar-less together | Tutorial | The best of both worlds in Service Mesh
-68 | A Rust-based proxy with Istio Ambient Mesh | Informational | The reasoning behind a rust-based proxy.
-69 | Contributing to the Istio Project | Informational | How do we contribute to the Istio project?
-70 | Additional Resources and Playgrounds | Informational | MORE INFO =D
+51 | [Scaling the Istio Service Mesh - Multi-cluster Service Mesh](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/51-Scaling%20the%20Istio%20Service%20Mesh%20-%20Multi-cluster%20Service%20Mesh.md) | Informational | Understanding the need for Multiple Clusters running Service Mesh, a quick peak at multi-cluster offerings (Gloo Mesh, Anthos Service Mesh, Tanzu Service Mesh)
+52 | [Scaling the Istio Service Mesh - Multi-cluster Service Mesh](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/52-Scaling%20the%20Istio%20Service%20Mesh%20-%20Multi-cluster%20Service%20Mesh.md) | Tutorial | Scaling the Istio Service Mesh
+53 | [Scaling the Istio Service Mesh - Multi-cluster Service Mesh](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/53-Scaling%20the%20Istio%20Service%20Mesh%20-%20Multi-cluster%20Service%20Mesh.md) | Tutorial | Scaling the Istio Service Mesh
+54 | [Virtual Machines in your Service Mesh](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/54-Virtual%20Machines%20in%20your%20Service%20Mesh.md) | Informational | How do we connect VMs to the Mesh?
+55 | [Virtual Machines in your Service Mesh](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/55-Virtual%20Machines%20in%20your%20Service%20Mesh.md) | Tutorial | How do we connect VMs to the Mesh?
+56 | [Istio and WebAssembly](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/56-Istio%20and%20WebAssembly.md) | Informational | Istio and extending the data path for WebAssembly
+57 | [Istio and Cert Manager](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/57-Istio%20and%20Cert%20Manager.md) | Informational | Why use Cert-manager with Istio?
+58 | [Istio and Inlets](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/58-Istio%20and%20Inlets.md) | Tutorial | Using Inlets for the LoadBalancer Service for Istio Ingress Gateways
+59 | [The Istio-CNI](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/59-The%20Istio-CNI.md) | Informational | Using the Istio-CNI to reroute traffic for side-car operations
+60 | [Sidecars vs Sidecar-less](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/60-Sidecars%20vs%20Sidecar-less.md) | Informational | Understanding a world where Sidecar and Sidecar-less coexist.
+61 | [Istio Ambient Mesh - Sidecar-less Service Mesh](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/61-Istio%20Ambient%20Mesh%20-%20Sidecar-less%20Service%20Mesh.md) | Informational | Sidecar-less Service Mesh
+62 | [Istio Ambient Mesh - Architecture](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/62-Istio%20Ambient%20Mesh%20-%20Architecture.md) | Informational | Sidecar-less Service Mesh Architecture
+63 | [Istio Ambient Mesh - Installation](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/63-Istio%20Ambient%20Mesh%20-%20Installation.md) | Tutorial | Installing Istio in Ambient Mode
+64 | [Istio Ambient Mesh - ztunnel](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/64-Istio%20Ambient%20Mesh%20-%20ztunnel.md) | Tutorial | Breaking down ztunnel
+65 | [Istio Ambient Mesh - Waypoint Proxy](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/65-Istio%20Ambient%20Mesh%20-%20Waypoint%20Proxy.md) | Tutorial | Using the Waypoint Proxy
+66 | [Istio Ambient Mesh - Testing out sidecar-less](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/66-Istio%20Ambient%20Mesh%20-%20Testing%20out%20sidecar-less.md) | Tutorial | Sidecar-less operations
+67 | [Istio Ambient Mesh - Sidecar and Sidecar-less together](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/67-Istio%20Ambient%20Mesh%20-%20Sidecar%20and%20Sidecar-less%20together.md) | Tutorial | The best of both worlds in Service Mesh
+68 | [A Rust-based proxy with Istio Ambient Mesh](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/68-A%20Rust-based%20proxy%20with%20Istio%20Ambient%20Mesh.md) | Informational | The reasoning behind a rust-based proxy.
+69 | [Contributing to the Istio Project](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/69-Contributing%20to%20the%20Istio%20Project.md) | Informational | How do we contribute to the Istio project?
+70 | [Additional Resources and Playgrounds](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/70-Additional%20Resources%20and%20Playgrounds.md) | Informational | MORE INFO =D
