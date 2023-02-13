@@ -207,7 +207,7 @@ details       details       96s
 ```
 Now, if I head over to my browser (I have a localhost DNS entry), I can get to bookinfo.io/productpage. If I hit refresh a few times, only the **Reviews-v1** service is hit.
 
-![Traffic_MGMT_Simple](../assets/Day4-70DaysofServiceMesh-traffic-mgmt-simple.png)
+![Traffic_MGMT_Simple](../assets/Day04-70DaysofServiceMesh-traffic-mgmt-simple.png)
 
 This is because I configured my virtual service resource to only route to **v1** of Reviews as seen in the configuration below.
 
@@ -263,7 +263,7 @@ kubectl apply -f samples/bookinfo/networking/virtual-service-reviews-test-v2.yam
 
 And we can test by logging in via the website and entering jason as the user.
 
-![Traffic_MGMT_jason](../assets/Day4-70DaysofServiceMesh-traffic-mgmt-jason.png)
+![Traffic_MGMT_jason](../assets/Day04-70DaysofServiceMesh-traffic-mgmt-jason.png)
 
 So now we know our Destination Rule works with our Virtual Service Configuration.
 

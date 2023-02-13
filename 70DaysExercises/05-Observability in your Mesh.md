@@ -78,7 +78,7 @@ Paste the below into the query bar. This query simply outputs all the requests I
 ```
 istio_requests_total
 ```
-![promday5](../assets/Day5-Prometheus.png)
+![promday5](../assets/Day05-Prometheus.png)
 
 There's much more to what we can see in Prometheus. If you have this up in your environment, play around. I'll revisit this in later days as I intend to dig into some of the key metrcis around SLAs, SLOs, SLIs, nth-percentile and latency, requests per second and others.
 

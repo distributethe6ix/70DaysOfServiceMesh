@@ -30,7 +30,7 @@ Here are key features of a service mesh:
 
 
 ### What does a Service Mesh look like?
-![ServiceMesh](../assets/Day1-70DaysofServiceMesh.png)
+![ServiceMesh](../assets/Day01-70DaysofServiceMesh.png)
 
 A service mesh usually has a few key components:
 - A control plane for which to deploy configurations to
