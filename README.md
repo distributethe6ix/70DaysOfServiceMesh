@@ -1,10 +1,13 @@
- 
-<h1 align="center">    
-    Welcome to #70DaysOfServiceMesh!!!    
-</h1>
+ <div align="center">
 
 ![Banner](https://user-images.githubusercontent.com/91419219/213897837-857e8855-0203-4462-8379-9a712843246b.png)
-
+  ### Welcome to #70DaysOfServiceMesh
+ 
+<a href="https://github.com/distributethe6ix/70DaysOfServiceMesh/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/distributethe6ix/70DaysOfServiceMesh"></a>
+<a href="https://github.com/distributethe6ix/70DaysOfServiceMesh/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/distributethe6ix/70DaysOfServiceMesh"></a>
+<a href="https://github.com/distributethe6ix/70DaysOfServiceMesh/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/distributethe6ix/70DaysOfServiceMesh"></a>
+<a href="https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/distributethe6ix/70DaysOfServiceMesh"></a>
+</div>
  
 ### Welcome to #70DaysOfServiceMesh!!!
 Inspired by Michael Cades' #90DaysOfDevOps and his ask for me to participate in his 2023 iteration to discuss 7 Days of Service Mesh, I decided to create a #70DaysOfServiceMesh.
