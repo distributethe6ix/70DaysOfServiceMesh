@@ -1,8 +1,7 @@
  <div align="center">
 
 ![Banner](https://user-images.githubusercontent.com/91419219/213897837-857e8855-0203-4462-8379-9a712843246b.png)
-  ### Welcome to #70DaysOfServiceMesh
- 
+    
 <a href="https://github.com/distributethe6ix/70DaysOfServiceMesh/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/distributethe6ix/70DaysOfServiceMesh"></a>
 <a href="https://github.com/distributethe6ix/70DaysOfServiceMesh/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/distributethe6ix/70DaysOfServiceMesh"></a>
 <a href="https://github.com/distributethe6ix/70DaysOfServiceMesh/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/distributethe6ix/70DaysOfServiceMesh"></a>
