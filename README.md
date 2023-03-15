@@ -104,3 +104,6 @@ In this repo, we'll dig into a structured and iterative approach to learning Ser
 68 | [A Rust-based proxy with Istio Ambient Mesh](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/68-A%20Rust-based%20proxy%20with%20Istio%20Ambient%20Mesh.md) | Informational | The reasoning behind a rust-based proxy.
 69 | [Contributing to the Istio Project](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/69-Contributing%20to%20the%20Istio%20Project.md) | Informational | How do we contribute to the Istio project?
 70 | [Additional Resources and Playgrounds](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/70-Additional%20Resources%20and%20Playgrounds.md) | Informational | MORE INFO =D
+### Thanks to the all Contributors ❤️
+
+<img src="https://contrib.rocks/image?repo=distributethe6ix/70DaysOfServiceMesh" />
