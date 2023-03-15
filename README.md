@@ -1,9 +1,13 @@
  # 70DaysOfServiceMesh
  <h1 align="center">    
-     <img src="./banner.png" />   
+     <img src="./banner.png" /> 
+     <a href="https://github.com/distributethe6ix/70DaysOfServiceMesh/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/distributethe6ix/70DaysOfServiceMesh"></a>
+<a href="https://github.com/distributethe6ix/70DaysOfServiceMesh/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/distributethe6ix/70DaysOfServiceMesh"></a>
+<a href="https://github.com/distributethe6ix/70DaysOfServiceMesh/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/distributethe6ix/70DaysOfServiceMesh"></a>
+<a href="https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/distributethe6ix/70DaysOfServiceMesh"></a>  
 </h1>
 
-### Welcome to #70DaysOfServiceMesh!!!
+## Welcome to #70DaysOfServiceMesh!!!
 Inspired by Michael Cades' #90DaysOfDevOps and his ask for me to participate in his 2023 iteration to discuss 7 Days of Service Mesh, I decided to create a #70DaysOfServiceMesh.
 
 70 Days of Service Mesh allows me to dig into plenty of areas to help myself (and others) better understand the inner workings of a service mesh. Some days will be a bit of a mini blogpost while other days might be very tutorial oriented.
@@ -14,7 +18,7 @@ I'll add contribution guidelines in the future!
 
 In this repo, we'll dig into a structured and iterative approach to learning Service Mesh.
 
-### The topics covered in this repository:
+## The topics covered in this repository:
 - What is a Service Mesh
 - Comparison of Service Meshes
 - Networking Recap
