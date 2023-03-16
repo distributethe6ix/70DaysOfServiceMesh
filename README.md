@@ -1,10 +1,12 @@
  # 70DaysOfServiceMesh
  <h1 align="center">    
-     <img src="./banner.png" /> 
-     <a href="https://github.com/distributethe6ix/70DaysOfServiceMesh/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/distributethe6ix/70DaysOfServiceMesh"></a>
+ <img src="./banner.png" /> 
+ <br>
+<a href="https://github.com/distributethe6ix/70DaysOfServiceMesh/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/distributethe6ix/70DaysOfServiceMesh"></a>
 <a href="https://github.com/distributethe6ix/70DaysOfServiceMesh/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/distributethe6ix/70DaysOfServiceMesh"></a>
 <a href="https://github.com/distributethe6ix/70DaysOfServiceMesh/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/distributethe6ix/70DaysOfServiceMesh"></a>
-<a href="https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/distributethe6ix/70DaysOfServiceMesh"></a>  
+<a href="https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/distributethe6ix/70DaysOfServiceMesh"></a> 
+
 </h1>
 
 ## Welcome to #70DaysOfServiceMesh!!!
