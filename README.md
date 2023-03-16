@@ -16,8 +16,6 @@ Inspired by Michael Cades' #90DaysOfDevOps and his ask for me to participate in 
 
 Also, these are 70 sequential days of service mesh. It means I'll spend about day focusing on one topic. Hopefully I wrap this up within 90 days because 2023 is starting to look BUSY.
 
-I'll add contribution guidelines in the future!
-
 In this repo, we'll dig into a structured and iterative approach to learning Service Mesh.
 
 ## The topics covered in this repository:
@@ -110,6 +108,16 @@ In this repo, we'll dig into a structured and iterative approach to learning Ser
 68 | [A Rust-based proxy with Istio Ambient Mesh](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/68-A%20Rust-based%20proxy%20with%20Istio%20Ambient%20Mesh.md) | Informational | The reasoning behind a rust-based proxy.
 69 | [Contributing to the Istio Project](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/69-Contributing%20to%20the%20Istio%20Project.md) | Informational | How do we contribute to the Istio project?
 70 | [Additional Resources and Playgrounds](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/70-Additional%20Resources%20and%20Playgrounds.md) | Informational | MORE INFO =D
-### Thanks to the all Contributors ❤️
+---
+## 🧰 Contributions
+- Contribution is the best way to support and get involved in community !
+
+- Please, consult our [CONTRIBUTING.md](./CONTRIBUTING.md) guide for interacting in our community.
+- Please give a ⭐
+ 
+
+
+
+## Thanks to the all Contributors ❤️
 
 <img src="https://contrib.rocks/image?repo=distributethe6ix/70DaysOfServiceMesh" />
