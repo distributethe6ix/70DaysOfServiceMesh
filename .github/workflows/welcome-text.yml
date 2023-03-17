@@ -14,4 +14,4 @@ jobs:
         uses: garg3133/welcome-new-contributors@v1.2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-           pr-message: 'Hello there, thanks for opening your first Pull Request. Someone will review it soon. Welcome to the #70DaysOfServiceMesh community!'
+           pr-message:'Hello there, thanks for opening your first Pull Request. Someone will review it soon. Welcome to the #70DaysOfServiceMesh community!'
