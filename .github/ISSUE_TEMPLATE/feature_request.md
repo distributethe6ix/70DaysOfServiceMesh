@@ -7,11 +7,7 @@ assignees: ''
 
 ---
 
-<!--Describe Changes --> 
+<!--Describe your feature --> 
 
 
-<!--What issue solving this change -->
-close: #
- 
-
-<!-- Additional context -->
+<!-- Additional context about the feature -->
