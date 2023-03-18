@@ -113,10 +113,16 @@ In this repo, we'll dig into a structured and iterative approach to learning Ser
 - Contribution is the best way to support and get involved in community!
 - Please, consult our [CONTRIBUTING.md](./CONTRIBUTING.md) guide for interacting in our community.
 - Follow us on [Twitter](https://twitter.com/virtualized6ix) and give shoutout!
-- Please give a ⭐ and Support the community!🙏
+- Please give a ⭐ and support the community!🙏
  
 
+<details>
+<summary>Authors</summary>
 
+* [Marino Wijay](https://github.com/distributethe6ix)
+
+</details>
+<br>
 
 ## Thanks to the all Contributors ❤️
 
