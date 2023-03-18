@@ -110,10 +110,10 @@ In this repo, we'll dig into a structured and iterative approach to learning Ser
 70 | [Additional Resources and Playgrounds](https://github.com/distributethe6ix/70DaysOfServiceMesh/blob/main/70DaysExercises/70-Additional%20Resources%20and%20Playgrounds.md) | Informational | MORE INFO =D
 ---
 ## 🧰 Contributions
-- Contribution is the best way to support and get involved in community !
-
+- Contribution is the best way to support and get involved in community!
 - Please, consult our [CONTRIBUTING.md](./CONTRIBUTING.md) guide for interacting in our community.
-- Please give a ⭐
+- Follow us on [Twitter](https://twitter.com/virtualized6ix) and give shoutout!
+- Please give a ⭐ and Support the community!🙏
  
 
 
