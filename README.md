@@ -118,6 +118,6 @@ In this repo, we'll dig into a structured and iterative approach to learning Ser
 
 
 
-## Thanks to the all Contributors ❤️
+### Thanks to the all Contributors ❤️
 
 <img src="https://contrib.rocks/image?repo=distributethe6ix/70DaysOfServiceMesh" />
