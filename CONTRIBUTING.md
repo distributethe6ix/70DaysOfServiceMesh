@@ -23,7 +23,7 @@ git commit -m "your message"
 ```
 - Push your changes
 ```
-git push origin my-new-feature
+git push origin <your_branch_name>
 
 ```
  Now you can check your change in your fork version and then create a  `pull_request` and wait for the review. The project maintainer will review your PR and then they will merged it.
