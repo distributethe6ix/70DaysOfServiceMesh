@@ -37,4 +37,6 @@ TCP/IP and DNS work together to enable users to access websites by translating d
 
 TCP/IP and DNS are two fundamental protocols that work together to make the internet work. TCP/IP provides the underlying transport mechanism for transmitting data over the internet, while DNS provides the system for translating domain names into IP addresses that can be used by TCP/IP to route data.
 
+In practical terms, TCP/IP provides the underlying infrastructure for data transmission on the Internet, while DNS provides a way to translate human-readable domain names into machine-readable IP addresses. TCP/IP ensures that packets of data are sent and received correctly, while DNS ensures that users can access websites using easy-to-remember domain names rather than complicated IP addresses.
+
 When a user wants to access a website, they type the domain name into their web browser. The browser sends a DNS query to a DNS server to obtain the IP address associated with that domain name. Once the IP address is obtained, the web browser uses TCP/IP to establish a connection with the web server associated with that IP address. The TCP protocol is responsible for ensuring that data is transmitted reliably and in the correct order, while the IP protocol is responsible for routing the data to its destination.
