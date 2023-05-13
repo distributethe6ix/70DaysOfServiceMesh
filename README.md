@@ -12,6 +12,8 @@
 </h1>
 
 ## Welcome to #70DaysOfServiceMesh!!!
+
+<p style="font-size: 10px">
 Inspired by Michael Cades' #90DaysOfDevOps and his ask for me to participate in his 2023 iteration to discuss 7 Days of Service Mesh, I decided to create a #70DaysOfServiceMesh.
 
 70 Days of Service Mesh allows me to dig into plenty of areas to help myself (and others) better understand the inner workings of a service mesh. Some days will be a bit of a mini blogpost while other days might be very tutorial oriented.
@@ -32,6 +34,7 @@ In this repo, we'll dig into a structured and iterative approach to learning Ser
 - Security and AuthN/AuthZ
 - Istio Ambient Mesh
 - Expanded areas of Istio
+ </p>
 
 ### The table below outlines what we'll cover in 70 Days of Service Mesh, with Istio being the main focus.
 
