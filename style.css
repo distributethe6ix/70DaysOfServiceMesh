@@ -1,0 +1,8 @@
+.app-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: unset!important;
+    margin-top: 18px!important;
+    margin-right: unset!important;
+}
