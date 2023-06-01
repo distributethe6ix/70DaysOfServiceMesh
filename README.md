@@ -1,4 +1,4 @@
- # [70DaysOfServiceMesh](https://shivam-sharma7.github.io/70DaysOfServiceMesh/)
+
  <h1 align="center">    
  <img src="./banner.png" width="50%"/> 
  <br>
@@ -13,7 +13,7 @@
 
 ## Welcome to #70DaysOfServiceMesh!!!
 
-<p style="font-size: 10px">
+<p style="font-size: 15px">
 Inspired by Michael Cades' #90DaysOfDevOps and his ask for me to participate in his 2023 iteration to discuss 7 Days of Service Mesh, I decided to create a #70DaysOfServiceMesh.
 
 70 Days of Service Mesh allows me to dig into plenty of areas to help myself (and others) better understand the inner workings of a service mesh. Some days will be a bit of a mini blogpost while other days might be very tutorial oriented.
