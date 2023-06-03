@@ -3,6 +3,9 @@
     align-items: center;
     justify-content: center;
     position: unset!important;
-    margin-top: 18px!important;
+    margin-top: unset!important;
     margin-right: unset!important;
+    font-weight: 900;
+    font-size: larger;  
+    
 }
