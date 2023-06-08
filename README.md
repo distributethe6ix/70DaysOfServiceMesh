@@ -125,6 +125,7 @@ In this repo, we'll dig into a structured and iterative approach to learning Ser
 <summary>Authors</summary>
 
 * [Marino Wijay](https://github.com/distributethe6ix)
+* [Shivam Sharma](https://github.com/shivam-sharma7)
 
 </details>
 <br>
