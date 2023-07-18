@@ -1,5 +1,5 @@
 
-<details style="margin-left: 33px">
+<details open style="margin-left: 33px">
 <summary>Check here All Notes</summary>
 
  - [What is a Service Mesh](./70DaysExercises/01-Let's%20break%20down%20a%20Service%20Mesh.md)
