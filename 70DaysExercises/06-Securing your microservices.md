@@ -2,14 +2,14 @@
 > **Tutorial**
 >> *Let's secure our microservices*
 
-Security is an extensive area when in comes to microservices. I could basically spend an entire 70days on just security alone but, I want to get to the specifics of testing this out in a lab environment with a Service Mesh.
+Security is an extensive area when it comes to microservices. I could basically spend an entire 70days on just security alone but, I want to get to the specifics of testing this out in a lab environment with a Service Mesh.
 
 Before I do, what security concerns am I addressing with a Service Mesh?
 - Identity
 - Policy
 - Authorization
 - Authentication
-- Encrpytion
+- Encryption
 - Data Loss Prevention.
 
 There's plenty to dig into with these but what specifically of Service Mesh helps us acheive these?
@@ -51,7 +51,7 @@ kubectl create ns sleep
 kubectl get ns
 ```
 ```
-cd istio-1.16.1
+cd istio-1.19.1
 kubectl apply -f samples/sleep/sleep.yaml -n sleep
 ```
 
@@ -284,7 +284,7 @@ Seeing this in action:
 
 Now we know our AuthZ policies are working.
 
-On Day 6 (plus several days), I dug into Authentication with mMTLS and Authorization with Authorization Policies. This just scratches the surface and we absolutely need to dig deeper.
+On Day 6 (plus several days), I dug into Authentication with mTLS and Authorization with Authorization Policies. This just scratches the surface and we absolutely need to dig deeper.
 
 In the more security specific sections of #70DaysofServiceMesh, I'll break down some of the detail.
 

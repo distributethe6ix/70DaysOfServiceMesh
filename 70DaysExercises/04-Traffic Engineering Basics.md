@@ -7,7 +7,7 @@ Welcome to Day 4 :smile:!!!
 
 In future days of #70DaysofServiceMesh, we'll dig into specific traffic routing resources and how they're used. I'm going to review some of these concepts very briefly and come back and revisit these in detail later. 
 
-Traffic management is an important topic in the world of microservices communication because, you have not one or two, you have thousands of services making requests to each other. In the world of physical networking, network devices can be used for flow control and packet routing, but because the size of our networks have grown to accomodate microservices communications, manually creating the path way for each to connect does not scale well. 
+Traffic management is an important topic in the world of microservices communication because, you have not one or two, you have thousands of services making requests to each other. In the world of physical networking, network devices can be used for flow control and packet routing, but because the size of our networks have grown to accommodate microservices communications, manually creating the path way for each to connect does not scale well. 
 
 Kubernetes has done quite a lot to simplify networking for microservices through technologies like CNI, Ingress (and more recently), Gateway API. There are other challenges around traffic routing that can be solved with custom-tailored solutions.
 
@@ -23,7 +23,7 @@ Traffic, or requests, will always enter the Service Mesh through some Ingress, s
 
 Client ---> Bookinfo ----> | ProductPage ---> Reviews ---> Ratings |
 
-In the flow above, the client makes a request to Bookinfo (via a DNS name) which is then translated into request towards the first service in the path, ProductPage, which then needs to illicit a respect from Reviews, and Reviews from Ratings. 
+In the flow above, the client makes a request to Bookinfo (via a DNS name) which is then translated into request towards the first service in the path, ProductPage, which then needs to illicit a response from Reviews, and Reviews from Ratings. 
 
 Let's explore the components that make this happen, briefly, and revisit these in the future.
 
@@ -176,7 +176,7 @@ Let's apply them:
 
 #### Destination Rule (make sure you are in the right directory)
 ```
-cd istio-1.16.1
+cd istio-1.19.1
 kubectl apply -f samples/bookinfo/networking/destination-rule-all.yaml
 ```
 
@@ -192,7 +192,7 @@ kubectl get vs && kubectl get dr
 
 AND THE RESULT
 ```
-marinow@mwm1mbp istio-1.16.1 % kubectl get vs && kubectl get dr
+marinow@mwm1mbp istio-1.19.1 % kubectl get vs && kubectl get dr
 NAME          GATEWAYS               HOSTS             AGE
 bookinfo      ["bookinfo-gateway"]   ["*"]             4d15h
 productpage                          ["productpage"]   14h

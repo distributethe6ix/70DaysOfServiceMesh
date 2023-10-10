@@ -26,9 +26,9 @@ One consideration is that there are more production and enterprise-ready offerin
 ### Installing the sample observability addons
 I'm using the same Civo Kubernetes cluster I've been using since I started this, but I plan to create some automation to turn up and down new clusters.
 
-I'm going to change back to the Istio-1.16.1 directory
+I'm going to change back to the Istio-1.19.1 directory
 ```
-cd istio-1.16.1
+cd istio-1.19.1
 ```
 And then I'll deploy the sample add-ons provided in the original zip file. 
 ```
@@ -62,7 +62,7 @@ NAME         TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
 prometheus   ClusterIP   10.43.234.212   <none>        9090/TCP   25h
 ```
 
-I'm going to generate traffic from my host to the Bookinfo app and I'll go review this in Prometheus, which we'll expose using istoctl.
+I'm going to generate traffic from my host to the Bookinfo app and I'll go review this in Prometheus, which we'll expose using istioctl.
 ```
 curl "http://bookinfo.io/productpage"
 ```
@@ -72,7 +72,7 @@ Let's turn up the dashboard  the *istioctl dashboard [name_of_k8s_service]*:
 istioctl dashboard prometheus
 ```
 At this point, a web-browser (your default) should open up with Prometheus. I want to feed it a query and I will do so in the *Expression* address bar, and proceed to hit execute.
-When your browser launches with Promtheus, simply enter the following to execute a query on the total requests Istio will process. 
+When your browser launches with Prometheus, simply enter the following to execute a query on the total requests Istio will process. 
 
 Paste the below into the query bar. This query simply outputs all the requests Istio sees.
 ```
@@ -80,12 +80,12 @@ istio_requests_total
 ```
 ![promday5](../assets/Day05-Prometheus.png)
 
-There's much more to what we can see in Prometheus. If you have this up in your environment, play around. I'll revisit this in later days as I intend to dig into some of the key metrcis around SLAs, SLOs, SLIs, nth-percentile and latency, requests per second and others.
+There's much more to what we can see in Prometheus. If you have this up in your environment, play around. I'll revisit this in later days as I intend to dig into some of the key metrics around SLAs, SLOs, SLIs, nth-percentile and latency, requests per second and others.
 
 Hit *ctrl+c* to exist the dashboard process.
 
 ### Grafana
-Grafana is an open-source and multi-platform analystics and visualization system that can be deployed alongside Prometheus to help us visually chart our apps and infra performance.
+Grafana is an open-source and multi-platform analytics and visualization system that can be deployed alongside Prometheus to help us visually chart our apps and infra performance.
 
 I've already installed the sample addons which contained Grafana. Let's check the services and see that it's there.
 
