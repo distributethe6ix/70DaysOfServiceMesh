@@ -14,7 +14,7 @@ I spent enough time on some theory on Day 1. Let's dig right into getting a serv
 I highly advise using something like minikube or a cloud-based K8s cluster that allows you to have load-balancer functionality.
 
 - A Kubernetes cluster running 1.22, 1.23, 1.24, 1.25, 1.26,1.27,1.28
-    - [kind](https://kind.sigs.k8s.io/)
+    - [kinD](https://kind.sigs.k8s.io/)
     - [Minikube](https://minikube.sigs.k8s.io/docs/start/)
     - [Civo K8s](https://www.civo.com/)
     - [EKS](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html)
