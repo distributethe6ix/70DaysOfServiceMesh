@@ -13,21 +13,21 @@ I spent enough time on some theory on Day 1. Let's dig right into getting a serv
 ### Installation + Prequisites
 I highly advise using something like minikube or a cloud-based K8s cluster that allows you to have load-balancer functionality.
 
-- A Kubernetes cluster running 1.22, 1.23, 1.24, 1.25
-    - KinD
-    - Minikube
-    - Civo K8s
-    - EKS
+- A Kubernetes cluster running 1.22, 1.23, 1.24, 1.25, 1.26,1.27,1.28
+    - [kinD](https://kind.sigs.k8s.io/)
+    - [Minikube](https://minikube.sigs.k8s.io/docs/start/)
+    - [Civo K8s](https://www.civo.com/)
+    - [EKS](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html)
 - Access to a Loadbalancer service
     - Metallb
     - port-forwarding (not preferred)
     - Cloud Load-balancer
     - Inlets
-- Linux or macOS to run istoctl
+- Linux or macOS to run istioctl
 
 **Environment setup**
 In my case, I spun up a Civo K3s cluster with 3-nodes, 2 CPU per node, and 4GB of RAM per node.
-This is important because you will need enough resources to run the service mesh control plane, which, is Istiod in our case. If you need a cluster in a pinch register for free credit @ civo.com.
+This is important because you will need enough resources to run the service mesh control plane, which, is Istiod in our case. If you need a cluster in a pinch register for free credit @civo.com.
 
 #### Install Istio
 1. Verify your cluster is up and operational and make sure there aren't any errors. The commands below will output nodes and their IPs and OS info and the running pods in all namespaces, respectively.
@@ -35,13 +35,13 @@ This is important because you will need enough resources to run the service mesh
     kubectl get nodes -o wide
     kubectl get pods -A
     ```
-2. Download Istio, which will pick up the latest version (at the time of writing its 1.16.1)
+2. Download Istio, which will pick up the latest version i.e 1.19.1
     ```
     curl -L https://istio.io/downloadIstio | sh -
     ```
 3. Change to the Istio directory
     ```
-    cd istio-1.16.1
+    cd istio-1.19.1
     ```
 4. Add the istioctl binary to your path
     ```
@@ -72,7 +72,7 @@ This is important because you will need enough resources to run the service mesh
     ```
     kubectl get all -n istio-system
     ```
-    Your output should look similar in that all components are working. I changed my External-IP to *bring.your.LB.IP*, whcih means your IP will be different. Why do you need mine :P 
+    Your output should look similar in that all components are working. I changed my External-IP to *bring.your.LB.IP*, which means your IP will be different. Why do you need mine :P 
     ```
     NAME                                        READY   STATUS    RESTARTS   AGE
     pod/istiod-885df7bc9-f9k7c                  1/1     Running   0          31m
@@ -95,7 +95,7 @@ This is important because you will need enough resources to run the service mesh
     replicaset.apps/istio-egressgateway-7475c75b68    1         1         1       31m
     ```
 #### Sidecar injection and Bookinfo deployment.
-8. While everything looks good, we also want to deploy an application and simulataneously add it to the Service Mesh.
+8. While everything looks good, we also want to deploy an application and simultaneously add it to the Service Mesh.
 Let's label our default namespace with the *istio-injection=enabled* label. This tells Istiod to push the sidecar to any new microservice deployed to the namespace.
     ```
     kubectl label namespace default istio-injection=enabled
@@ -104,7 +104,7 @@ Let's label our default namespace with the *istio-injection=enabled* label. This
     ```
     kubectl get ns --show-labels
     ```
-9. Let's deploy our app. Make sure you are the in the same directory as before. If not, change to *istio-1.16.1*
+9. Let's deploy our app. Make sure you are the in the same directory as before. If not, change to *istio-1.19.1*
     ```
     kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
     ```
@@ -148,7 +148,7 @@ Let's label our default namespace with the *istio-injection=enabled* label. This
     The one thing to notice here is that all pods have *2/2* containers ready, meaning, the sidecar is now present.
 
 #### Testing functionality
-10. One test I'll run is to verify that I can connect to any one of these pods and get a response. Let's deploy a sleep pod. If you were in the same *istio-1.16.1* directory, then you can run this command.
+10. One test I'll run is to verify that I can connect to any one of these pods and get a response. Let's deploy a sleep pod. If you were in the same *istio-1.19.1* directory, then you can run this command.
     ```
     kubectl apply -f samples/sleep/sleep.yaml
     ```

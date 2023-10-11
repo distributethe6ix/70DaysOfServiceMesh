@@ -10,17 +10,17 @@ Service Mesh | Open Source or Proprietary | Notes |
 ---|---|---|
 Istio | Open Source | Widely adopted and abstracted
 Linkerd | Open Source | Built by Buoyant
-Consul | Open Source | Owned by Hashcorp, Cloud offering available
+Consul | Open Source | Owned by Hashicorp, Cloud offering available
 Kuma | Open Source | Maintained by Kong
 Traefik Mesh | Open Source | Specialized Proxy
 Open Service Mesh | Open Source | By Microsoft 
 Gloo Mesh | Proprietary | Built by Solo.io ontop of Istio
 AWS App Mesh | Proprietary | AWS specific services
-OpenShift Service Mesh | Proprietary | Built by Redhad, based on Istio
+OpenShift Service Mesh | Proprietary | Built by Redhat, based on Istio
 Tanzu Service Mesh | Proprietary | SaaS based on Istio, built by VMware
 Anthos Service Mesh | Proprietary | SaaS based on Istio, built by Google
 Bouyant Cloud | Proprietary | SaaS based on Linkerd
-Cilium Service Mesh | Open Source | Orginally a CNI
+Cilium Service Mesh | Open Source | Originally a CNI
 
 
 I'll quickly recap some of the key options I'll compare. This was taken from Day 1.
@@ -32,7 +32,7 @@ Istio is an open-source service mesh built by Google, IBM, and Lyft, and current
 AppMesh is a service mesh implementation that is proprietary to AWS but primarily focuses in on applications deployed to various AWS services such as ECS, EKS, EC2. Its tight-nit integration into the AWS ecosystem allows for quick onboarding of services into the mesh. 
 
 #### Consul 
-Consul is a serivce mesh offering from Hashicorp that also provides traffic routing, observability, and sercurity much like Istio does.
+Consul is a service mesh offering from Hashicorp that also provides traffic routing, observability, and security much like Istio does.
 
 #### Linkerd
 Linkerd is an open-source service mesh offering that is lightweight. Similar to Istio, it provides traffic management, observability, and security, using a similar architecture. Linkerd adopts a sidecar-pattern using a Rust-based proxy.
@@ -44,7 +44,7 @@ Cilium is a Container Networking Interface that leverages eBPF to optimize packe
 
 Feature | Istio | Linkerd | AppMesh | Consul | Cilium | 
 ---|---|---|---|---|---|
-Current Version | 1.16.1 | 2.12 | N/A (it's AWS :D ) | 1.14.3 | 1.12
+Current Version | 1.19.1 | 2.14 | N/A (it's AWS :D ) | 1.16.2 | 1.15
 Project Creators | Google, Lyft, IBM, Solo | Buoyant | AWS | Hashicorp | Isovalent 
 Service Proxy | Envoy, Rust-Proxy (experimental) | Linkerd2-proxy | Envoy | Interchangeable, Envoy default | Per-node Envoy
 Ingress Capabilities | Yes via the Istio Ingress-Gateway | No; BYO | Yes via AWS | Envoy | Cilium-Based Ingress
@@ -61,9 +61,9 @@ Sidecar Modes | Sidecar and Sidecar-less | Sidecar | Sidecar | Sidecar | No side
 CNI Redirection | Istio CNI Plugin | linkerd-cni | ProxyConfiguration Required | Consul CNI | eBPF Kernel processing
 Platform Support | K8s and VMs | K8s | EC2, EKS, ECS, Fargate, K8s on EC2 | K8s, Nomad, ECS, Lambda, VMs | K8s, VMs, Nomad
 Multi-cluster Mesh | Yes | Yes | Yes, only AWS | Yes | Yes
-Governance and Oversight | Istio Community | Linkered Community | AWS | Hashicorp | Cilium Community
+Governance and Oversight | Istio Community | Linkerd Community | AWS | Hashicorp | Cilium Community
 
 ### Conclusion 
-Service Meshes have come a long way in terms of capabilities and the environments they support. Istio appears to be the most feature-complete service mesh, providing a balance of platform support, customizability, extensibility, and is most production ready. Linkered trails right behind with a lighter-weight approach, and is mostly complete as a service mesh. AppMesh is mostly feature-filled but specific to the AWS Ecosystem. Consul is a great contender to Istio and Linkered. The Cilium CNI is taking the approach of using eBPF and climbing up the networking stack to address Service Mesh capabilities, but it has a lot of catching up to do.
+Service Meshes have come a long way in terms of capabilities and the environments they support. Istio appears to be the most feature-complete service mesh, providing a balance of platform support, customizability, extensibility, and is most production ready. Linkerd trails right behind with a lighter-weight approach, and is mostly complete as a service mesh. AppMesh is mostly feature-filled but specific to the AWS Ecosystem. Consul is a great contender to Istio and Linkerd. The Cilium CNI is taking the approach of using eBPF and climbing up the networking stack to address Service Mesh capabilities, but it has a lot of catching up to do.
 
 See you on Day 4 of #70DaysOfServiceMesh! 
